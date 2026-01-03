@@ -573,8 +573,8 @@ export default function TVDisplayHTM({
     <div
       className="h-screen w-screen text-white font-bold overflow-hidden tv-container grid relative"
       style={{
-        gridTemplateRows: "clamp(120px, 17vh, 175px) 1fr",
-        gap: "0.5rem",
+        gridTemplateRows: "clamp(100px, 14vh, 140px) 1fr",
+        gap: "0.4rem",
         margin: 0,
       }}
     >
@@ -600,25 +600,25 @@ export default function TVDisplayHTM({
         className="tv-header glass-header flex-shrink-0 z-20"
         style={{ height: "100%" }}
       >
-        <div className="grid gap-1.5 h-full items-center px-1.5 grid-cols-12" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
+        <div className="grid gap-1 h-full items-center px-1 grid-cols-12" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
           {/* Logo Section */}
-          <div className="col-span-1 h-full w-full flex flex-col items-center justify-between py-1.5 min-w-0">
+          <div className="col-span-1 h-full w-full flex flex-col items-center justify-between py-1 min-w-0">
             <div className="flex flex-row justify-center items-center gap-0.5">
               <button
                 className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-200 cursor-pointer group"
-                style={{ width: "clamp(2.2rem, 4vw, 4.4rem)", height: "clamp(2.2rem, 4vw, 4.4rem)", aspectRatio: "1" }}
+                style={{ width: "clamp(1.8rem, 3.2vw, 3.6rem)", height: "clamp(1.8rem, 3.2vw, 3.6rem)", aspectRatio: "1" }}
                 title="Chọn Line Sản Xuất"
               >
                 <img src="/coach.png" alt="COACH Logo" className="w-full h-full object-contain filter drop-shadow-xl group-hover:drop-shadow-2xl transition-all" loading="eager" />
                 <ChevronDown size={12} className="absolute -bottom-1 -right-1 text-blue-600 bg-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <div className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center"
-                style={{ width: "clamp(2.2rem, 4vw, 4.4rem)", height: "clamp(2.2rem, 4vw, 4.4rem)", aspectRatio: "1" }}>
+                style={{ width: "clamp(1.8rem, 3.2vw, 3.6rem)", height: "clamp(1.8rem, 3.2vw, 3.6rem)", aspectRatio: "1" }}>
                 <img src="/logo.png" alt="TBS GROUP Logo" className="w-full h-full object-contain filter drop-shadow-xl" loading="eager" />
               </div>
             </div>
-            <div className="text-center px-2 py-1">
-              <div style={{ fontSize: "clamp(1.8rem,2.8vw,3rem)" }}
+            <div className="text-center px-1 py-0.5">
+              <div style={{ fontSize: "clamp(1.4rem,2.2vw,2.4rem)" }}
                 className="font-black text-white leading-none"
                 suppressHydrationWarning={true}
               >
@@ -634,17 +634,17 @@ export default function TVDisplayHTM({
 
               {/* TGLV */}
               <div className="flex flex-col items-center justify-center h-full min-w-0 col-span-[80px]">
-                <div className="text-white font-black mb-1" style={{ fontSize: "clamp(1rem,1.8vw,1.6rem)" }}>TGLV</div>
-                <div className={getFlashClass('thoigianlamviec', "font-black rounded px-2 metric-card-group1 flex items-center justify-center w-full max-w-[80px]")}
-                  style={{ fontSize: "clamp(1.8rem,3.2vw,3.5rem)" }}
+                <div className="text-white font-black mb-0.5" style={{ fontSize: "clamp(0.75rem,1.3vw,1.2rem)" }}>TGLV</div>
+                <div className={getFlashClass('thoigianlamviec', "font-black rounded px-1.5 metric-card-group1 flex items-center justify-center w-full max-w-[80px]")}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   {formatNumber(displayData.thoigianlamviec)}
                 </div>
               </div>
 
               {/* Factory/Line/Team */}
-              <div className="w-full col-span-3 -ml-4 mt-4" style={{ fontSize: "clamp(1.9rem,3.4vw,4rem)" }}>
-                <div className="flex items-center justify-between gap-2 metric-card-violet py-1 px-2 w-full">
+              <div className="w-full col-span-3 -ml-4 mt-3" style={{ fontSize: "clamp(1.5rem,2.6vw,3rem)" }}>
+                <div className="flex items-center justify-between gap-1.5 metric-card-violet py-0.5 px-1.5 w-full">
                   <div
                     className={getFlashClass("nhaMay", "text-white font-black")}
                   >
@@ -662,33 +662,33 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Layout */}
-              <div className="px-2 py-1 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1" style={{ minWidth: 0 }}>
-                <div className="text-white font-black mb-1" style={{ fontSize: "clamp(1.1rem,2vw,1.8rem)" }}>LAYOUT</div>
-                <div className={getFlashClass('ldLayout', "font-black text-white rounded px-2 py-1 metric-card-violet flex items-center justify-center w-full")}
-                  style={{ fontSize: "clamp(2rem,3.5vw,3.8rem)" }}
+              <div className="px-1.5 py-0.5 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1" style={{ minWidth: 0 }}>
+                <div className="text-white font-black mb-0.5" style={{ fontSize: "clamp(0.75rem,1.3vw,1.2rem)" }}>LAYOUT</div>
+                <div className={getFlashClass('ldLayout', "font-black text-white rounded px-1.5 py-0.5 metric-card-violet flex items-center justify-center w-full")}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   {formatNumber(displayData.ldLayout)}
                 </div>
               </div>
 
               {/* Có mặt */}
-              <div className={'py-1 text-center flex flex-col justify-center items-center h-full min-w-0 ' + (hasDiffLayoutCoMat ? 'col-span-2' : 'col-span-1 px-2')}
+              <div className={'py-0.5 text-center flex flex-col justify-center items-center h-full min-w-0 ' + (hasDiffLayoutCoMat ? 'col-span-2' : 'col-span-1 px-1.5')}
                 style={{ minWidth: 0 }}>
-                <div className="text-white font-black mb-1" style={{ fontSize: "clamp(1.1rem,2vw,1.8rem)" }}>CÓ MẶT</div>
-                <div className={`relative font-black text-white flex items-center justify-center rounded px-4 py-1 metric-card-violet w-full`}
-                  style={{ fontSize: "clamp(2rem,3.5vw,3.8rem)" }}
+                <div className="text-white font-black mb-0.5" style={{ fontSize: "clamp(0.75rem,1.3vw,1.2rem)" }}>CÓ MẶT</div>
+                <div className={`relative font-black text-white flex items-center justify-center rounded px-2 py-0.5 metric-card-violet w-full`}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   <span className={getFlashClass("ldCoMat", "text-center")}>
                     {formatNumber(displayData.ldCoMat)}
                   </span>
                   {hasDiffLayoutCoMat && (
-                    <div className="absolute right-2">
+                    <div className="absolute right-1.5">
                       <div
                         className={getFlashClass(
                           "diffLdCoMatLayout",
-                          "flex items-center justify-center rounded-sm bg-gradient-to-tr from-[#090013] via-[#140028] to-[#1a0038] text-white font-semibold px-2 py-1 border border-[#c084fc] shadow-[0_0_15px_4px_rgba(192,132,252,0.8),0_0_6px_2px_rgba(255,255,255,0.1)]"
+                          "flex items-center justify-center rounded-sm bg-gradient-to-tr from-[#090013] via-[#140028] to-[#1a0038] text-white font-semibold px-1.5 py-0.5 border border-[#c084fc] shadow-[0_0_15px_4px_rgba(192,132,252,0.8),0_0_6px_2px_rgba(255,255,255,0.1)]"
                         )}
-                        style={{ fontSize: "clamp(1.6rem,2.8vw,3rem)" }}
+                        style={{ fontSize: "clamp(1.2rem,2vw,2.2rem)" }}
                       >
                         {displayData.diffLdCoMatLayout > 0
                           ? `+${formatNumber(displayData.diffLdCoMatLayout)}`
@@ -700,10 +700,10 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Mã hàng */}
-              <div className="px-2 py-1 text-center flex flex-col justify-center h-full min-w-0 col-span-2" style={{ minWidth: 0 }}>
-                <div className="font-black mb-1 text-transparent" style={{ fontSize: "clamp(0.8rem,1.5vw,1.4rem)" }}>TĂNG CA</div>
-                <div className={getFlashClass('maHang', "font-black text-white metric-card-violet rounded px-1 py-1 overflow-hidden min-w-0 flex items-center justify-center")}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}
+              <div className="px-1.5 py-0.5 text-center flex flex-col justify-center h-full min-w-0 col-span-2" style={{ minWidth: 0 }}>
+                <div className="font-black mb-0.5 text-transparent" style={{ fontSize: "clamp(0.6rem,1.1vw,1rem)" }}>TĂNG CA</div>
+                <div className={getFlashClass('maHang', "font-black text-white metric-card-violet rounded px-1 py-0.5 overflow-hidden min-w-0 flex items-center justify-center")}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   <div className="truncate w-full text-center">
                     {displayData.maHang}
@@ -718,7 +718,7 @@ export default function TVDisplayHTM({
               >
                 {displayData.image && displayData.image !== "" && (
                   <div
-                    className="flex items-center justify-center metric-card-violet p-1 backdrop-blur-sm shadow-xl w-full h-full"
+                    className="flex items-center justify-center metric-card-violet p-0.5 backdrop-blur-sm shadow-xl w-full h-full"
                     style={{
                       overflow: "hidden",
                       maxWidth: "100%",
@@ -734,15 +734,15 @@ export default function TVDisplayHTM({
                       }
                       alt="COACH"
                       className="object-cover rounded-md"
-                      width={120}
-                      height={120}
+                      width={100}
+                      height={100}
                       priority
                       quality={75}
                       style={{
                         width: "100%",
                         height: "100%",
-                        maxWidth: "clamp(4rem, 8vw, 7.5rem)",
-                        maxHeight: "clamp(4rem, 8vw, 7.5rem)",
+                        maxWidth: "clamp(3rem, 5.5vw, 5.5rem)",
+                        maxHeight: "clamp(3rem, 5.5vw, 5.5rem)",
                         objectFit: "cover",
                         flexShrink: 0,
                       }}
