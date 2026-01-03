@@ -571,25 +571,11 @@ export default function TVDisplayHTM({
 
   return (
     <div
-      className="h-screen w-screen text-white font-bold overflow-hidden grid relative"
+      className="h-screen w-screen text-white font-bold overflow-hidden tv-container grid relative"
       style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: "100vw",
-        height: "100vh",
+        gridTemplateRows: "clamp(120px, 17vh, 175px) 1fr",
+        gap: "0.5rem",
         margin: 0,
-        padding: 0,
-        minWidth: "100vw",
-        minHeight: "100vh",
-        maxWidth: "100vw",
-        maxHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #0a0c17 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #0a0c17 100%)",
-        gridTemplateRows: "clamp(100px, 14vh, 140px) 1fr",
-        gap: "0.25rem",
       }}
     >
       {/* Data Warning Overlay - Absolute positioned in center */}
@@ -614,52 +600,25 @@ export default function TVDisplayHTM({
         className="tv-header glass-header flex-shrink-0 z-20"
         style={{ height: "100%" }}
       >
-        <div
-          className="grid gap-1 h-full items-center px-1 grid-cols-12"
-          style={{ width: "100%", minWidth: 0, overflow: "hidden" }}
-        >
+        <div className="grid gap-1.5 h-full items-center px-1.5 grid-cols-12" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
           {/* Logo Section */}
-          <div className="col-span-1 h-full w-full flex flex-col items-center justify-between py-2 min-w-0">
+          <div className="col-span-1 h-full w-full flex flex-col items-center justify-between py-1.5 min-w-0">
             <div className="flex flex-row justify-center items-center gap-0.5">
               <button
                 className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-200 cursor-pointer group"
-                style={{
-                  width: "clamp(1.8rem, 3.2vw, 3.6rem)",
-                  height: "clamp(1.8rem, 3.2vw, 3.6rem)",
-                  aspectRatio: "1",
-                }}
+                style={{ width: "clamp(2.2rem, 4vw, 4.4rem)", height: "clamp(2.2rem, 4vw, 4.4rem)", aspectRatio: "1" }}
                 title="Chọn Line Sản Xuất"
               >
-                <img
-                  src="/coach.png"
-                  alt="COACH Logo"
-                  className="w-full h-full object-contain filter drop-shadow-xl group-hover:drop-shadow-2xl transition-all"
-                  loading="eager"
-                />
-                <ChevronDown
-                  size={12}
-                  className="absolute -bottom-1 -right-1 text-blue-600 bg-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
-                />
+                <img src="/coach.png" alt="COACH Logo" className="w-full h-full object-contain filter drop-shadow-xl group-hover:drop-shadow-2xl transition-all" loading="eager" />
+                <ChevronDown size={12} className="absolute -bottom-1 -right-1 text-blue-600 bg-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
-              <div
-                className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center"
-                style={{
-                  width: "clamp(1.8rem, 3.2vw, 3.6rem)",
-                  height: "clamp(1.8rem, 3.2vw, 3.6rem)",
-                  aspectRatio: "1",
-                }}
-              >
-                <img
-                  src="/logo.png"
-                  alt="TBS GROUP Logo"
-                  className="w-full h-full object-contain filter drop-shadow-xl"
-                  loading="eager"
-                />
+              <div className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center"
+                style={{ width: "clamp(2.2rem, 4vw, 4.4rem)", height: "clamp(2.2rem, 4vw, 4.4rem)", aspectRatio: "1" }}>
+                <img src="/logo.png" alt="TBS GROUP Logo" className="w-full h-full object-contain filter drop-shadow-xl" loading="eager" />
               </div>
             </div>
-            <div className="text-center px-1 py-0.5">
-              <div
-                style={{ fontSize: "clamp(1.4rem,2.2vw,2.4rem)" }}
+            <div className="text-center px-2 py-1">
+              <div style={{ fontSize: "clamp(1.8rem,2.8vw,3rem)" }}
                 className="font-black text-white leading-none"
                 suppressHydrationWarning={true}
               >
@@ -670,39 +629,22 @@ export default function TVDisplayHTM({
 
           {/* Production Metrics */}
           <div className="col-span-11 h-full flex items-center justify-center min-w-0 overflow-hidden">
-            <div
-              className={
-                "grid " +
-                (hasDiffLayoutCoMat ? "grid-cols-10" : "grid-cols-9") +
-                " w-full gap-1 items-center h-full min-w-0"
-              }
-              style={{ width: "100%", minWidth: 0, overflow: "hidden" }}
-            >
+            <div className={'grid ' + (hasDiffLayoutCoMat ? 'grid-cols-10' : 'grid-cols-9') + ' w-full gap-1.5 items-center h-full min-w-0'}
+              style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
+
               {/* TGLV */}
               <div className="flex flex-col items-center justify-center h-full min-w-0 col-span-[80px]">
-                <div
-                  className="text-white font-black mb-0.5"
-                  style={{ fontSize: "clamp(0.8rem,1.4vw,1.2rem)" }}
-                >
-                  TGLV
-                </div>
-                <div
-                  className={getFlashClass(
-                    "thoigianlamviec",
-                    "font-black rounded px-1 metric-card-group1 flex items-center justify-center w-full max-w-[80px]"
-                  )}
-                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
+                <div className="text-white font-black mb-1" style={{ fontSize: "clamp(1rem,1.8vw,1.6rem)" }}>TGLV</div>
+                <div className={getFlashClass('thoigianlamviec', "font-black rounded px-2 metric-card-group1 flex items-center justify-center w-full max-w-[80px]")}
+                  style={{ fontSize: "clamp(1.8rem,3.2vw,3.5rem)" }}
                 >
                   {formatNumber(displayData.thoigianlamviec)}
                 </div>
               </div>
 
               {/* Factory/Line/Team */}
-              <div
-                className="w-full col-span-3 -ml-2 mt-2"
-                style={{ fontSize: "clamp(1.6rem,2.8vw,3.2rem)" }}
-              >
-                <div className="flex items-center justify-between gap-1 metric-card-violet py-0.5 px-1 w-full">
+              <div className="w-full col-span-3 -ml-4 mt-4" style={{ fontSize: "clamp(1.9rem,3.4vw,4rem)" }}>
+                <div className="flex items-center justify-between gap-2 metric-card-violet py-1 px-2 w-full">
                   <div
                     className={getFlashClass("nhaMay", "text-white font-black")}
                   >
@@ -720,44 +662,21 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Layout */}
-              <div
-                className="px-1 py-0.5 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1"
-                style={{ minWidth: 0 }}
-              >
-                <div
-                  className="text-white font-black mb-0.5"
-                  style={{ fontSize: "clamp(0.8rem,1.4vw,1.2rem)" }}
-                >
-                  LAYOUT
-                </div>
-                <div
-                  className={getFlashClass(
-                    "ldLayout",
-                    "font-black text-white rounded px-1 py-0.5 metric-card-violet flex items-center justify-center w-full"
-                  )}
-                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
+              <div className="px-2 py-1 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1" style={{ minWidth: 0 }}>
+                <div className="text-white font-black mb-1" style={{ fontSize: "clamp(1.1rem,2vw,1.8rem)" }}>LAYOUT</div>
+                <div className={getFlashClass('ldLayout', "font-black text-white rounded px-2 py-1 metric-card-violet flex items-center justify-center w-full")}
+                  style={{ fontSize: "clamp(2rem,3.5vw,3.8rem)" }}
                 >
                   {formatNumber(displayData.ldLayout)}
                 </div>
               </div>
 
               {/* Có mặt */}
-              <div
-                className={
-                  "py-1 text-center flex flex-col justify-center items-center h-full min-w-0 " +
-                  (hasDiffLayoutCoMat ? "col-span-2" : "col-span-1 px-2")
-                }
-                style={{ minWidth: 0 }}
-              >
-                <div
-                  className="text-white font-black mb-0.5"
-                  style={{ fontSize: "clamp(0.8rem,1.4vw,1.2rem)" }}
-                >
-                  CÓ MẶT
-                </div>
-                <div
-                  className={`relative font-black text-white flex items-center justify-center rounded px-2 py-0.5 metric-card-violet w-full`}
-                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
+              <div className={'py-1 text-center flex flex-col justify-center items-center h-full min-w-0 ' + (hasDiffLayoutCoMat ? 'col-span-2' : 'col-span-1 px-2')}
+                style={{ minWidth: 0 }}>
+                <div className="text-white font-black mb-1" style={{ fontSize: "clamp(1.1rem,2vw,1.8rem)" }}>CÓ MẶT</div>
+                <div className={`relative font-black text-white flex items-center justify-center rounded px-4 py-1 metric-card-violet w-full`}
+                  style={{ fontSize: "clamp(2rem,3.5vw,3.8rem)" }}
                 >
                   <span className={getFlashClass("ldCoMat", "text-center")}>
                     {formatNumber(displayData.ldCoMat)}
@@ -781,22 +700,10 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Mã hàng */}
-              <div
-                className="px-1 py-0.5 text-center flex flex-col justify-center h-full min-w-0 col-span-2"
-                style={{ minWidth: 0 }}
-              >
-                <div
-                  className="font-black mb-0.5 text-transparent"
-                  style={{ fontSize: "clamp(0.7rem,1.2vw,1.1rem)" }}
-                >
-                  TĂNG CA
-                </div>
-                <div
-                  className={getFlashClass(
-                    "maHang",
-                    "font-black text-white metric-card-violet rounded px-1 py-0.5 overflow-hidden min-w-0 flex items-center justify-center"
-                  )}
-                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
+              <div className="px-2 py-1 text-center flex flex-col justify-center h-full min-w-0 col-span-2" style={{ minWidth: 0 }}>
+                <div className="font-black mb-1 text-transparent" style={{ fontSize: "clamp(0.8rem,1.5vw,1.4rem)" }}>TĂNG CA</div>
+                <div className={getFlashClass('maHang', "font-black text-white metric-card-violet rounded px-1 py-1 overflow-hidden min-w-0 flex items-center justify-center")}
+                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}
                 >
                   <div className="truncate w-full text-center">
                     {displayData.maHang}
@@ -859,92 +766,35 @@ export default function TVDisplayHTM({
       </div>
 
       {/* Main Content */}
-      <div
-        className={`tv-main flex-grow flex flex-col p-0.5 overflow-hidden ${
-          !hasErrors ? "mt-1" : "mt-0.5 gap-0.5"
-        }`}
-      >
+      <div className={`tv-main flex-grow flex flex-col p-1.5 overflow-hidden ${!hasErrors ? 'mt-1.5' : 'mt-1 gap-1'}`}>
         {/* Combined Group - Row 1 & 2 */}
-        <div
-          className={`grid grid-cols-3 ${hasErrors ? "flex-1" : "flex-grow"} ${
-            !hasErrors ? "gap-1" : "gap-0.5"
-          }`}
-        >
+        <div className={`grid grid-cols-3 ${hasErrors ? 'flex-1' : 'flex-grow'} ${!hasErrors ? 'gap-2.5' : 'gap-1.5'}`}>
           {/* Group 1 - Production & Performance (col-span-2) */}
-          <div
-            className={`col-span-2 glass-card-group2 border border-blue-400/30 flex flex-col ${
-              hasErrors ? "px-2 py-1" : "p-2"
-            }`}
-          >
-            <div className="grid grid-cols-4 flex-1 gap-0.5 border-b border-blue-400/30 pb-1">
+          <div className={`col-span-2 glass-card-group2 border border-blue-400/30 flex flex-col ${hasErrors ? 'px-3 py-2' : 'px-4 py-2.5'}`}>
+            <div className="grid grid-cols-4 flex-1 gap-1.5 border-b border-blue-400/30 pb-1.5">
               {/* MỤC TIÊU SL NGÀY */}
               <div className="text-center">
-                <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
-                >
-                  MỤC TIÊU SL NGÀY
-                </div>
-                <div
-                  className={getFlashClass(
-                    "targetNgay",
-                    "metric-card-group2 font-black"
-                  )}
-                  style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
-                  }}
-                >
+                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}>MỤC TIÊU SL NGÀY</div>
+                <div className={getFlashClass('targetNgay', "metric-card-group2 font-black")} style={{ fontSize: "clamp(1.8rem,3.8vw,4.4rem)", lineHeight: 1.15 }}>
                   {formatNumber(displayData.targetNgay)}
                 </div>
               </div>
 
               {/* LK K.HOẠCH */}
               <div className="text-center">
-                <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
-                >
-                  LK K.HOẠCH
-                </div>
-                <div
-                  className={getFlashClass(
-                    "lkkh",
-                    "metric-card-group2 font-black"
-                  )}
-                  style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
-                  }}
-                >
+                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}>LK K.HOẠCH</div>
+                <div className={getFlashClass('lkkh', "metric-card-group2 font-black")} style={{ fontSize: "clamp(1.8rem,3.8vw,4.4rem)", lineHeight: 1.15 }}>
                   {formatNumber(displayData.lkkh)}
                 </div>
               </div>
 
               {/* LK T.HIỆN */}
               <div className="text-center">
-                <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
-                >
-                  LK T.HIỆN
-                </div>
-                <div
-                  className={getFlashClass(
-                    "lkth",
-                    "metric-card-group2 font-black"
-                  )}
-                  style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
-                  }}
-                >
+                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}>LK T.HIỆN</div>
+                <div className={getFlashClass('lkth', "metric-card-group2 font-black")} style={{ fontSize: "clamp(1.8rem,3.8vw,4.4rem)", lineHeight: 1.15 }}>
                   {formatNumber(displayData.lkth)}
                 </div>
-                <div
-                  className="font-black flex items-center justify-center gap-1"
-                  style={{ fontSize: "clamp(1rem,2vw,3rem)" }}
-                >
+                <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}>
                   <div
                     className={getFlashClass(
                       "diffLkthTarget",
@@ -967,8 +817,8 @@ export default function TVDisplayHTM({
               {/* %HT SLTH */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   %HT SLTH
                 </div>
@@ -983,15 +833,15 @@ export default function TVDisplayHTM({
                     );
                   })()}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatPercentage(displayData.phanTramHt, 0)}%
                 </div>
                 <div
                   className="font-black flex items-center justify-center gap-1"
-                  style={{ fontSize: "clamp(1rem,2vw,3rem)" }}
+                  style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}
                 >
                   <div
                     className={getFlashClass(
@@ -1021,8 +871,8 @@ export default function TVDisplayHTM({
               {/* MỤC TIÊU SL GIỜ */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   MỤC TIÊU SL GIỜ
                 </div>
@@ -1032,8 +882,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatNumber(displayData.targetGio)}
@@ -1043,8 +893,8 @@ export default function TVDisplayHTM({
               {/* PPH MỤC TIÊU */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   PPH MỤC TIÊU
                 </div>
@@ -1054,8 +904,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatPercentage(displayData.pphKh, 2)}
@@ -1065,8 +915,8 @@ export default function TVDisplayHTM({
               {/* PPH T.HIỆN */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   PPH T.HIỆN
                 </div>
@@ -1076,13 +926,13 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatPercentage(displayData.pphTh, 2)}
                 </div>
-                <div style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
+                <div style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}>
                   <div
                     className={getFlashClass(
                       "ratioPphThKh",
@@ -1105,8 +955,8 @@ export default function TVDisplayHTM({
               {/* %HT PPH */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   %HT PPH
                 </div>
@@ -1121,13 +971,13 @@ export default function TVDisplayHTM({
                     );
                   })()}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatPercentage(displayData.phanTramHtPph, 0)}%
                 </div>
-                <div style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
+                <div style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}>
                   <div
                     className={getFlashClass(
                       "diffPhanTramHtPph100",
@@ -1163,8 +1013,8 @@ export default function TVDisplayHTM({
               {/* LK QC KIỂM */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   LK QC KIỂM
                 </div>
@@ -1174,8 +1024,8 @@ export default function TVDisplayHTM({
                     "metric-card-group1 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatNumber(displayData.tongKiem)}
@@ -1197,8 +1047,8 @@ export default function TVDisplayHTM({
               {/* LK TÚI ĐẠT */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   LK TÚI ĐẠT
                 </div>
@@ -1208,8 +1058,8 @@ export default function TVDisplayHTM({
                     "metric-card-group1 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatNumber(displayData.tongDat)}
@@ -1238,8 +1088,8 @@ export default function TVDisplayHTM({
               {/* LK TÚI LỖI */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   LK TÚI LỖI
                 </div>
@@ -1249,8 +1099,8 @@ export default function TVDisplayHTM({
                     "metric-card-group1 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatNumber(displayData.tongLoi)}
@@ -1269,8 +1119,8 @@ export default function TVDisplayHTM({
               {/* RFT */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-0.5"
-                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
+                  className="text-white font-black leading-tight mb-1"
+                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.6rem)" }}
                 >
                   RFT
                 </div>
@@ -1285,8 +1135,8 @@ export default function TVDisplayHTM({
                     );
                   })()}
                   style={{
-                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
-                    lineHeight: 1.1,
+                    fontSize: "clamp(1.8rem,3.8vw,4.4rem)",
+                    lineHeight: 1.15,
                   }}
                 >
                   {formatPercentage(displayData.rft, 0)}%
@@ -1320,7 +1170,7 @@ export default function TVDisplayHTM({
         {/* Combined Error Analysis & Hourly Timeline */}
         <div
           className={`glass-card-group3 border border-red-400/30 flex flex-col ${
-            hasErrors ? "flex-1 p-0.5 gap-1" : "flex-1 p-1 gap-2"
+            hasErrors ? "flex-1 p-0.5 gap-0.5" : "flex-1 p-1 gap-1"
           }`}
         >
           {/* Error Analysis Section */}
