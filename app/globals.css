@@ -152,9 +152,8 @@ html, body {
   text-rendering: optimizeLegibility;
   font-feature-settings: "kern" 1, "liga" 1;
   font-kerning: normal;
-  -webkit-text-stroke: 0.4px currentColor;
-  text-shadow: 0 0 0.3px currentColor;
-  letter-spacing: -0.015em;
+  /* Removed text-stroke and text-shadow to reduce font thickness */
+  letter-spacing: -0.01em;
 }
 
 /* Tăng độ đậm cho headings */
@@ -164,9 +163,9 @@ h1, h2, h3, h4, h5, h6,
 .font-black,
 [class*="tech-gradient-text"],
 [class*="green-gradient-text"] {
-  -webkit-text-stroke: 0.45px currentColor;
-  text-shadow: 0 0 0.4px currentColor;
-  letter-spacing: -0.02em;
+  /* Reduced text-stroke for less thickness */
+  -webkit-text-stroke: 0.2px currentColor;
+  letter-spacing: -0.015em;
   font-weight: 700;
 }
 
@@ -181,20 +180,19 @@ h1, h2, h3, h4, h5, h6,
   font-feature-settings: "tnum" 1, "lnum" 1, "kern" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-stroke: 0.5px currentColor;
-  text-shadow: 0 0 0.4px currentColor;
+  /* Reduced text-stroke for metrics */
+  -webkit-text-stroke: 0.25px currentColor;
   letter-spacing: -0.01em;
 }
 
-/* Font weights */
-.font-normal { font-weight: 500; }
-.font-medium { font-weight: 600; }
-.font-semibold { font-weight: 700; }
-.font-bold { font-weight: 800; }
+/* Font weights - Reset to normal Tailwind values */
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
 .font-black { 
   font-weight: 900;
-  -webkit-text-stroke: 0.55px currentColor;
-  text-shadow: 0 0 0.5px currentColor;
+  -webkit-text-stroke: 0.3px currentColor;
   letter-spacing: -0.015em;
 }
 
@@ -205,10 +203,9 @@ h1, h2, h3, h4, h5, h6,
 [class*="metric-card-group3"] .font-black,
 [style*="clamp(1.6rem,3.6vw,4.5rem)"] .font-black,
 [style*="clamp(1.6rem,2.8vw,3rem)"] .font-black {
-  -webkit-text-stroke: 0.6px currentColor;
-  text-shadow: 0 0 0.5px currentColor, 0 0 1px currentColor;
+  -webkit-text-stroke: 0.35px currentColor;
   font-weight: 900;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.015em;
 }
 
 /* TV display optimizations */

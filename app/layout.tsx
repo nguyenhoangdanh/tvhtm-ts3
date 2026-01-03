@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={oswald.variable}>
-      <body className={`${oswald.className} font-semibold`}>
+      <body className={`${oswald.className} font-bold`}>
         {/* <Navigation /> */}
         {children}
       </body>
