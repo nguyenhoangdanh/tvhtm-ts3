@@ -588,8 +588,8 @@ export default function TVDisplayHTM({
         maxHeight: "100vh",
         background:
           "linear-gradient(135deg, #0a0c17 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #0a0c17 100%)",
-        gridTemplateRows: "clamp(120px, 17vh, 175px) 1fr",
-        gap: "0.5rem",
+        gridTemplateRows: "clamp(100px, 14vh, 140px) 1fr",
+        gap: "0.25rem",
       }}
     >
       {/* Data Warning Overlay - Absolute positioned in center */}
@@ -615,7 +615,7 @@ export default function TVDisplayHTM({
         style={{ height: "100%" }}
       >
         <div
-          className="grid gap-2 h-full items-center px-2 grid-cols-12"
+          className="grid gap-1 h-full items-center px-1 grid-cols-12"
           style={{ width: "100%", minWidth: 0, overflow: "hidden" }}
         >
           {/* Logo Section */}
@@ -624,8 +624,8 @@ export default function TVDisplayHTM({
               <button
                 className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-200 cursor-pointer group"
                 style={{
-                  width: "clamp(2.2rem, 4vw, 4.4rem)",
-                  height: "clamp(2.2rem, 4vw, 4.4rem)",
+                  width: "clamp(1.8rem, 3.2vw, 3.6rem)",
+                  height: "clamp(1.8rem, 3.2vw, 3.6rem)",
                   aspectRatio: "1",
                 }}
                 title="Chọn Line Sản Xuất"
@@ -644,8 +644,8 @@ export default function TVDisplayHTM({
               <div
                 className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center"
                 style={{
-                  width: "clamp(2.2rem, 4vw, 4.4rem)",
-                  height: "clamp(2.2rem, 4vw, 4.4rem)",
+                  width: "clamp(1.8rem, 3.2vw, 3.6rem)",
+                  height: "clamp(1.8rem, 3.2vw, 3.6rem)",
                   aspectRatio: "1",
                 }}
               >
@@ -657,9 +657,9 @@ export default function TVDisplayHTM({
                 />
               </div>
             </div>
-            <div className="text-center px-2 py-1">
+            <div className="text-center px-1 py-0.5">
               <div
-                style={{ fontSize: "clamp(1.8rem,2.8vw,3rem)" }}
+                style={{ fontSize: "clamp(1.4rem,2.2vw,2.4rem)" }}
                 className="font-black text-white leading-none"
                 suppressHydrationWarning={true}
               >
@@ -674,24 +674,24 @@ export default function TVDisplayHTM({
               className={
                 "grid " +
                 (hasDiffLayoutCoMat ? "grid-cols-10" : "grid-cols-9") +
-                " w-full gap-2 items-center h-full min-w-0"
+                " w-full gap-1 items-center h-full min-w-0"
               }
               style={{ width: "100%", minWidth: 0, overflow: "hidden" }}
             >
               {/* TGLV */}
               <div className="flex flex-col items-center justify-center h-full min-w-0 col-span-[80px]">
                 <div
-                  className="text-white font-black mb-1"
-                  style={{ fontSize: "clamp(1.0rem,1.8vw,1.5rem)" }}
+                  className="text-white font-black mb-0.5"
+                  style={{ fontSize: "clamp(0.8rem,1.4vw,1.2rem)" }}
                 >
                   TGLV
                 </div>
                 <div
                   className={getFlashClass(
                     "thoigianlamviec",
-                    "font-black rounded px-2 metric-card-group1 flex items-center justify-center w-full max-w-[80px]"
+                    "font-black rounded px-1 metric-card-group1 flex items-center justify-center w-full max-w-[80px]"
                   )}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   {formatNumber(displayData.thoigianlamviec)}
                 </div>
@@ -699,10 +699,10 @@ export default function TVDisplayHTM({
 
               {/* Factory/Line/Team */}
               <div
-                className="w-full col-span-3 -ml-4 mt-5"
-                style={{ fontSize: "clamp(2.0rem,3.5vw,4.2rem)" }}
+                className="w-full col-span-3 -ml-2 mt-2"
+                style={{ fontSize: "clamp(1.6rem,2.8vw,3.2rem)" }}
               >
-                <div className="flex items-center justify-between gap-2 metric-card-violet py-1 px-2 w-full">
+                <div className="flex items-center justify-between gap-1 metric-card-violet py-0.5 px-1 w-full">
                   <div
                     className={getFlashClass("nhaMay", "text-white font-black")}
                   >
@@ -721,21 +721,21 @@ export default function TVDisplayHTM({
 
               {/* Layout */}
               <div
-                className="px-2 py-1 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1"
+                className="px-1 py-0.5 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1"
                 style={{ minWidth: 0 }}
               >
                 <div
-                  className="text-white font-black mb-1"
-                  style={{ fontSize: "clamp(1.0rem,1.8vw,1.5rem)" }}
+                  className="text-white font-black mb-0.5"
+                  style={{ fontSize: "clamp(0.8rem,1.4vw,1.2rem)" }}
                 >
                   LAYOUT
                 </div>
                 <div
                   className={getFlashClass(
                     "ldLayout",
-                    "font-black text-white rounded px-2 py-1 metric-card-violet flex items-center justify-center w-full"
+                    "font-black text-white rounded px-1 py-0.5 metric-card-violet flex items-center justify-center w-full"
                   )}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   {formatNumber(displayData.ldLayout)}
                 </div>
@@ -750,14 +750,14 @@ export default function TVDisplayHTM({
                 style={{ minWidth: 0 }}
               >
                 <div
-                  className="text-white font-black mb-1"
-                  style={{ fontSize: "clamp(1.0rem,1.8vw,1.5rem)" }}
+                  className="text-white font-black mb-0.5"
+                  style={{ fontSize: "clamp(0.8rem,1.4vw,1.2rem)" }}
                 >
                   CÓ MẶT
                 </div>
                 <div
-                  className={`relative font-black text-white flex items-center justify-center rounded px-4 py-1 metric-card-violet w-full`}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}
+                  className={`relative font-black text-white flex items-center justify-center rounded px-2 py-0.5 metric-card-violet w-full`}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   <span className={getFlashClass("ldCoMat", "text-center")}>
                     {formatNumber(displayData.ldCoMat)}
@@ -782,21 +782,21 @@ export default function TVDisplayHTM({
 
               {/* Mã hàng */}
               <div
-                className="px-2 py-1 text-center flex flex-col justify-center h-full min-w-0 col-span-2"
+                className="px-1 py-0.5 text-center flex flex-col justify-center h-full min-w-0 col-span-2"
                 style={{ minWidth: 0 }}
               >
                 <div
-                  className="font-black mb-1 text-transparent"
-                  style={{ fontSize: "clamp(0.8rem,1.5vw,1.4rem)" }}
+                  className="font-black mb-0.5 text-transparent"
+                  style={{ fontSize: "clamp(0.7rem,1.2vw,1.1rem)" }}
                 >
                   TĂNG CA
                 </div>
                 <div
                   className={getFlashClass(
                     "maHang",
-                    "font-black text-white metric-card-violet rounded px-1 py-1 overflow-hidden min-w-0 flex items-center justify-center"
+                    "font-black text-white metric-card-violet rounded px-1 py-0.5 overflow-hidden min-w-0 flex items-center justify-center"
                   )}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}
+                  style={{ fontSize: "clamp(1.4rem,2.4vw,2.6rem)" }}
                 >
                   <div className="truncate w-full text-center">
                     {displayData.maHang}
@@ -860,28 +860,28 @@ export default function TVDisplayHTM({
 
       {/* Main Content */}
       <div
-        className={`tv-main flex-grow flex flex-col p-1 overflow-hidden ${
-          !hasErrors ? "mt-2" : "mt-1 gap-1"
+        className={`tv-main flex-grow flex flex-col p-0.5 overflow-hidden ${
+          !hasErrors ? "mt-1" : "mt-0.5 gap-0.5"
         }`}
       >
         {/* Combined Group - Row 1 & 2 */}
         <div
           className={`grid grid-cols-3 ${hasErrors ? "flex-1" : "flex-grow"} ${
-            !hasErrors ? "gap-3" : ""
+            !hasErrors ? "gap-1" : "gap-0.5"
           }`}
         >
           {/* Group 1 - Production & Performance (col-span-2) */}
           <div
             className={`col-span-2 glass-card-group2 border border-blue-400/30 flex flex-col ${
-              hasErrors ? "px-4 py-2" : "p-6"
+              hasErrors ? "px-2 py-1" : "p-2"
             }`}
           >
-            <div className="grid grid-cols-4 flex-1 gap-1 border-b border-blue-400/30 pb-2">
+            <div className="grid grid-cols-4 flex-1 gap-0.5 border-b border-blue-400/30 pb-1">
               {/* MỤC TIÊU SL NGÀY */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   MỤC TIÊU SL NGÀY
                 </div>
@@ -891,8 +891,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.targetNgay)}
@@ -902,8 +902,8 @@ export default function TVDisplayHTM({
               {/* LK K.HOẠCH */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   LK K.HOẠCH
                 </div>
@@ -913,8 +913,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.lkkh)}
@@ -924,8 +924,8 @@ export default function TVDisplayHTM({
               {/* LK T.HIỆN */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   LK T.HIỆN
                 </div>
@@ -935,8 +935,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.lkth)}
@@ -967,8 +967,8 @@ export default function TVDisplayHTM({
               {/* %HT SLTH */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   %HT SLTH
                 </div>
@@ -983,8 +983,8 @@ export default function TVDisplayHTM({
                     );
                   })()}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatPercentage(displayData.phanTramHt, 0)}%
@@ -1021,8 +1021,8 @@ export default function TVDisplayHTM({
               {/* MỤC TIÊU SL GIỜ */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   MỤC TIÊU SL GIỜ
                 </div>
@@ -1032,8 +1032,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.targetGio)}
@@ -1043,8 +1043,8 @@ export default function TVDisplayHTM({
               {/* PPH MỤC TIÊU */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   PPH MỤC TIÊU
                 </div>
@@ -1054,8 +1054,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatPercentage(displayData.pphKh, 2)}
@@ -1065,8 +1065,8 @@ export default function TVDisplayHTM({
               {/* PPH T.HIỆN */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   PPH T.HIỆN
                 </div>
@@ -1076,8 +1076,8 @@ export default function TVDisplayHTM({
                     "metric-card-group2 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatPercentage(displayData.pphTh, 2)}
@@ -1105,8 +1105,8 @@ export default function TVDisplayHTM({
               {/* %HT PPH */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   %HT PPH
                 </div>
@@ -1121,8 +1121,8 @@ export default function TVDisplayHTM({
                     );
                   })()}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatPercentage(displayData.phanTramHtPph, 0)}%
@@ -1155,16 +1155,16 @@ export default function TVDisplayHTM({
 
           {/* Group 2 - QC Metrics (col-span-1) */}
           <div
-            className={`glass-card-group1 p-2 border border-gray-400/30 flex flex-col ${
-              hasErrors ? "px-4 py-2" : "p-8"
+            className={`glass-card-group1 p-1 border border-gray-400/30 flex flex-col ${
+              hasErrors ? "px-2 py-1" : "p-2"
             }`}
           >
-            <div className="grid grid-cols-2 flex-1 gap-1 border-b border-gray-400/30 pb-2">
+            <div className="grid grid-cols-2 flex-1 gap-0.5 border-b border-gray-400/30 pb-1">
               {/* LK QC KIỂM */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   LK QC KIỂM
                 </div>
@@ -1174,8 +1174,8 @@ export default function TVDisplayHTM({
                     "metric-card-group1 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.tongKiem)}
@@ -1188,7 +1188,7 @@ export default function TVDisplayHTM({
                       ? "text-red-500"
                       : "text-white"
                   }`}
-                  style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}
+                  style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}
                 >
                   {formatNumber(currentDatLan1)} đạt lần 1
                 </div>
@@ -1197,8 +1197,8 @@ export default function TVDisplayHTM({
               {/* LK TÚI ĐẠT */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   LK TÚI ĐẠT
                 </div>
@@ -1208,13 +1208,13 @@ export default function TVDisplayHTM({
                     "metric-card-group1 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.tongDat)}
                 </div>
-                {/* <div className={`font-black flex items-center justify-center ${taichedat > 0 ? 'text-green-400' : taichedat < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}>
+                {/* <div className={`font-black flex items-center justify-center ${taichedat > 0 ? 'text-green-400' : taichedat < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}>
                   {formatNumber(taichedat)} tái chế đạt
                 </div> */}
                 {taichedat > 0 && (
@@ -1226,7 +1226,7 @@ export default function TVDisplayHTM({
                         ? "text-red-500"
                         : "text-white"
                     }`}
-                    style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}
+                    style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}
                   >
                     {formatNumber(taichedat)} tái chế đạt
                   </div>
@@ -1238,8 +1238,8 @@ export default function TVDisplayHTM({
               {/* LK TÚI LỖI */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   LK TÚI LỖI
                 </div>
@@ -1249,8 +1249,8 @@ export default function TVDisplayHTM({
                     "metric-card-group1 font-black"
                   )}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatNumber(displayData.tongLoi)}
@@ -1258,7 +1258,7 @@ export default function TVDisplayHTM({
                 {tuiChosua > 0 && taichedat > 0 && (
                   <div
                     className="font-black flex items-center justify-center text-red-500"
-                    style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}
+                    style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}
                   >
                     <DownArrowIcon />
                     {formatNumber(tuiChosua)} chờ sửa
@@ -1269,8 +1269,8 @@ export default function TVDisplayHTM({
               {/* RFT */}
               <div className="text-center">
                 <div
-                  className="text-white font-black leading-tight mb-1"
-                  style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}
+                  className="text-white font-black leading-tight mb-0.5"
+                  style={{ fontSize: "clamp(0.7rem,1.3vw,1.4rem)" }}
                 >
                   RFT
                 </div>
@@ -1285,15 +1285,15 @@ export default function TVDisplayHTM({
                     );
                   })()}
                   style={{
-                    fontSize: "clamp(2rem,4.8vw,5.4rem)",
-                    lineHeight: 1.2,
+                    fontSize: "clamp(1.6rem,3.2vw,3.8rem)",
+                    lineHeight: 1.1,
                   }}
                 >
                   {formatPercentage(displayData.rft, 0)}%
                 </div>
                 <div
                   className="font-black flex items-center justify-center gap-1"
-                  style={{ fontSize: "clamp(1rem,2vw,3rem)" }}
+                  style={{ fontSize: "clamp(0.85rem,1.6vw,2.4rem)" }}
                 >
                   <div
                     className={getFlashClass(
@@ -1320,7 +1320,7 @@ export default function TVDisplayHTM({
         {/* Combined Error Analysis & Hourly Timeline */}
         <div
           className={`glass-card-group3 border border-red-400/30 flex flex-col ${
-            hasErrors ? "flex-1 p-1 gap-2" : "flex-1 p-4 gap-4"
+            hasErrors ? "flex-1 p-0.5 gap-1" : "flex-1 p-1 gap-2"
           }`}
         >
           {/* Error Analysis Section */}
@@ -1335,8 +1335,8 @@ export default function TVDisplayHTM({
                     <div
                       className="uppercase text-yellow-200 font-semibold tracking-wide text-center w-full"
                       style={{
-                        fontSize: "clamp(0.65rem, 0.9vw, 1.1rem)",
-                        letterSpacing: "0.03em",
+                        fontSize: "clamp(0.55rem, 0.75vw, 0.9rem)",
+                        letterSpacing: "0.02em",
                         fontFamily: "Arial Narrow",
                       }}
                     >
@@ -1346,10 +1346,10 @@ export default function TVDisplayHTM({
                       <div
                         className={getFlashClass(
                           errorItem.field,
-                          "bg-white text-black font-black rounded-md flex items-center justify-center py-1 border-1 border-yellow-100 w-full max-w-[70px]"
+                          "bg-white text-black font-black rounded-md flex items-center justify-center py-0.5 border-1 border-yellow-100 w-full max-w-[70px]"
                         )}
                         style={{
-                          fontSize: "clamp(1.2rem, 2.2vw, 2.5rem)",
+                          fontSize: "clamp(1rem, 1.8vw, 2rem)",
                           lineHeight: 1,
                         }}
                       >
@@ -1414,11 +1414,11 @@ export default function TVDisplayHTM({
                     className="flex flex-col h-full hourly-timeline-item"
                   >
                     <div
-                      className="text-center text-white font-bold py-1 hourly-timeline-header border-slate-600/50 border-1 bg-slate-900/50"
+                      className="text-center text-white font-bold py-0.5 hourly-timeline-header border-slate-600/50 border-1 bg-slate-900/50"
                       style={{
                         fontSize: hasErrors
-                          ? "clamp(0.8rem,1.8vw,2.2rem)"
-                          : "clamp(1rem,2.2vw,2.8rem)",
+                          ? "clamp(0.7rem,1.4vw,1.8rem)"
+                          : "clamp(0.85rem,1.8vw,2.2rem)",
                       }}
                     >
                       {time}
@@ -1426,8 +1426,8 @@ export default function TVDisplayHTM({
                     <div
                       className={`flex-1 flex items-center justify-center hourly-timeline-content border-slate-600/50 border-2 border-t-0 ${colors.bgColor} ${colors.textColor} w-full h-full border border-white/20 shadow-lg`}
                       style={{
-                        fontSize: "clamp(1.5rem,3vw,3.8rem)",
-                        lineHeight: 1.2,
+                        fontSize: "clamp(1.2rem,2.4vw,3rem)",
+                        lineHeight: 1.1,
                       }}
                     >
                       {shouldDisplay && (
