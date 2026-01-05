@@ -343,11 +343,11 @@ html:has(.tv-container) {
   html:has(.tv-container) {
     --tv-scale-font: 1.28;  /* Balanced font for TV viewing (not too large) */
     --tv-scale-space: 0.72; /* Moderate spacing */
-    --tv-header-min: 85px;  /* Compact header */
-    --tv-header-max: 95px;
-    --tv-error-max: 65px;   /* Compact Error */
-    --tv-timeline-max: 80px; /* Compact Timeline */
-    --tv-error-timeline-combined-max: 160px; /* Compact combined */
+    --tv-header-min: 75px;  /* Ultra-compact header ~7% viewport */
+    --tv-header-max: 82px;
+    --tv-error-max: 60px;   /* Ultra-compact Error */
+    --tv-timeline-max: 75px; /* Ultra-compact Timeline */
+    --tv-error-timeline-combined-max: 150px; /* Minimal combined ~14% */
     font-size: calc(16px * var(--tv-scale-font)) !important; /* CRITICAL: Override base font-size */
   }
 }
@@ -391,11 +391,11 @@ html:has(.tv-container) {
 /* Override spacing for TV 43" FHD - MUST match TV preset media query */
 @media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
   .tv-container {
-    --tv-gap: calc(0.30rem * var(--tv-scale-space));
-    --tv-main-pad: calc(0.38rem * var(--tv-scale-space));
-    --tv-card-pad: calc(0.85rem * var(--tv-scale-space));
-    --tv-card-pad-compact: calc(0.58rem * var(--tv-scale-space));
-    --tv-card-gap: calc(0.48rem * var(--tv-scale-space));
+    --tv-gap: calc(0.25rem * var(--tv-scale-space));
+    --tv-main-pad: calc(0.30rem * var(--tv-scale-space));
+    --tv-card-pad: calc(0.70rem * var(--tv-scale-space));
+    --tv-card-pad-compact: calc(0.45rem * var(--tv-scale-space));
+    --tv-card-gap: calc(0.38rem * var(--tv-scale-space));
   }
 }
 
@@ -545,7 +545,12 @@ html:has(.tv-container) {
     font-size: clamp(1.0rem, 1.8vw, 1.8rem) !important; /* Diff values */
   }
   
-  /* Main content font overrides */
+  /* Main content font overrides - CRITICAL FOR TV 43" */
+  /* Production & QC big numbers: 429, 195, 190, 280, 260, etc. */
+  .tv-main [style*="clamp(2rem,4.8vw,5.4rem)"] {
+    font-size: clamp(1.3rem, 2.6vw, 3.2rem) !important; /* Reduce ~45% from 4.8vw to 2.6vw */
+  }
+  
   .tv-main [style*="clamp(1.6rem,3.6vw,4.5rem)"] {
     font-size: clamp(1.1rem, 2.3vw, 2.8rem) !important; /* Large numbers */
   }
@@ -556,6 +561,11 @@ html:has(.tv-container) {
   
   .tv-main [style*="clamp(0.75rem,1.4vw,1.3rem)"] {
     font-size: clamp(0.55rem, 0.9vw, 0.9rem) !important; /* Small labels */
+  }
+  
+  /* Labels in main content */
+  .tv-main [style*="clamp(0.8rem,1.8vw,2rem)"] {
+    font-size: clamp(0.6rem, 1.1vw, 1.2rem) !important; /* Section labels */
   }
   
   /* Reduce header logo sizes */
@@ -569,28 +579,36 @@ html:has(.tv-container) {
     max-height: clamp(3.2rem, 6vw, 5.5rem) !important;
   }
   
-  /* Reduce header grid gap and padding */
+  /* Reduce header grid gap and padding - AGGRESSIVE */
   .tv-header .grid {
-    gap: 0.3rem !important;
+    gap: 0.2rem !important;
   }
   
   .tv-header .px-2 {
-    padding-left: 0.3rem !important;
-    padding-right: 0.3rem !important;
+    padding-left: 0.2rem !important;
+    padding-right: 0.2rem !important;
   }
   
   .tv-header .py-2 {
-    padding-top: 0.25rem !important;
-    padding-bottom: 0.25rem !important;
-  }
-  
-  .tv-header .py-1 {
     padding-top: 0.15rem !important;
     padding-bottom: 0.15rem !important;
   }
   
+  .tv-header .py-1 {
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important;
+  }
+  
   .tv-header .mb-1 {
-    margin-bottom: 0.15rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+  
+  .tv-header .mt-5 {
+    margin-top: 0.3rem !important;
+  }
+  
+  .tv-header .-ml-4 {
+    margin-left: -0.3rem !important;
   }
 }
 
