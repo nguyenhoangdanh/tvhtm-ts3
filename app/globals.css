@@ -343,8 +343,8 @@ html:has(.tv-container) {
   html:has(.tv-container) {
     --tv-scale-font: 1.28;  /* Balanced font for TV viewing (not too large) */
     --tv-scale-space: 0.72; /* Moderate spacing */
-    --tv-header-min: 75px;  /* Ultra-compact header ~7% viewport */
-    --tv-header-max: 82px;
+    --tv-header-min: 60px;  /* Ultra-compact header ~5.5% viewport */
+    --tv-header-max: 68px;
     --tv-error-max: 60px;   /* Ultra-compact Error */
     --tv-timeline-max: 75px; /* Ultra-compact Timeline */
     --tv-error-timeline-combined-max: 150px; /* Minimal combined ~14% */

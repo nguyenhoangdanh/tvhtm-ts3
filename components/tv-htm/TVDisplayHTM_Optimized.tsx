@@ -513,47 +513,54 @@ export default function TVDisplayHTM({
 
       {/* Modern Header */}
       <div className="tv-header glass-header flex-shrink-0 z-20">
-        <div className="grid gap-1 h-full items-center px-1 grid-cols-[minmax(80px,1fr)_11fr]" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
+        <div className="grid gap-1 h-full items-center px-1 grid-cols-[minmax(70px,auto)_1fr]" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
           {/* Logo Section */}
-          <div className="h-full w-full flex flex-col items-center justify-center gap-1 py-0 min-w-0">
+          <div className="h-full w-full flex flex-col items-center justify-center gap-0 py-1 min-w-0">
             <div className="flex flex-row justify-center items-center gap-0">
               <button
                 className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-200 cursor-pointer group"
-                style={{ width: "clamp(2.2rem, 4vw, 4.4rem)", height: "clamp(2.2rem, 4vw, 4.4rem)", aspectRatio: "1" }}
+                style={{ width: "clamp(1.8rem, 3.2vw, 3.5rem)", height: "clamp(1.8rem, 3.2vw, 3.5rem)", aspectRatio: "1" }}
                 title="Chọn Line Sản Xuất"
               >
                 <img src="/coach.png" alt="COACH Logo" className="w-full h-full object-contain filter drop-shadow-xl group-hover:drop-shadow-2xl transition-all" loading="eager" />
                 <ChevronDown size={12} className="absolute -bottom-1 -right-1 text-blue-600 bg-white rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               <div className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center"
-                style={{ width: "clamp(2.2rem, 4vw, 4.4rem)", height: "clamp(2.2rem, 4vw, 4.4rem)", aspectRatio: "1" }}>
+                style={{ width: "clamp(1.8rem, 3.2vw, 3.5rem)", height: "clamp(1.8rem, 3.2vw, 3.5rem)", aspectRatio: "1" }}>
                 <img src="/logo.png" alt="TBS GROUP Logo" className="w-full h-full object-contain filter drop-shadow-xl" loading="eager" />
               </div>
             </div>
             <div className="text-center">
-              <div style={{ fontSize: "clamp(1.8rem,2.8vw,3rem)" }} className="font-black text-white leading-none" suppressHydrationWarning={true}>
+              <div style={{ fontSize: "clamp(1.4rem,2.2vw,2.4rem)" }} className="font-black text-white leading-none" suppressHydrationWarning={true}>
                 {formattedTime}
               </div>
             </div>
           </div>
 
           {/* Production Metrics */}
-          <div className="h-full flex items-center justify-center min-w-0 overflow-hidden">
-            <div className={'grid ' + (hasDiffLayoutCoMat ? 'grid-cols-10' : 'grid-cols-9') + ' w-full gap-1 items-center h-full min-w-0'}
-              style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
+          <div className="h-full flex items-center min-w-0 overflow-hidden">
+            <div className="grid w-full gap-1 items-center h-full min-w-0"
+              style={{ 
+                width: '100%', 
+                minWidth: 0, 
+                overflow: 'hidden',
+                gridTemplateColumns: hasDiffLayoutCoMat 
+                  ? '0.6fr 2.8fr 1fr 2fr 2fr 1fr' // With diff: TGLV, Factory, Layout, CóMặt, MãHàng, Image
+                  : '0.6fr 2.8fr 1fr 1fr 2fr 1fr' // No diff: TGLV, Factory, Layout, CóMặt, MãHàng, Image
+              }}>
 
               {/* TGLV */}
-              <div className="flex flex-col items-center justify-center h-full min-w-0 col-span-[80px]">
-                <div className="text-white font-black mb-0" style={{ fontSize: "clamp(1.0rem,1.8vw,1.5rem)" }}>TGLV</div>
-                <div className={getFlashClass('thoigianlamviec', "font-black rounded px-1 metric-card-group1 flex items-center justify-center w-full max-w-[80px]")}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}>
+              <div className="flex flex-col items-center justify-center px-1 py-1 min-w-0">
+                <div className="text-white font-black mb-0" style={{ fontSize: "clamp(0.7rem,1.3vw,1.2rem)" }}>TGLV</div>
+                <div className={getFlashClass('thoigianlamviec', "font-black rounded px-1 metric-card-group1 flex items-center justify-center w-full")}
+                  style={{ fontSize: "clamp(1.5rem,2.5vw,2.8rem)" }}>
                   {formatNumber(displayData.thoigianlamviec)}
                 </div>
               </div>
 
               {/* Factory/Line/Team */}
-              <div className="w-full col-span-3" style={{ fontSize: "clamp(2.0rem,3.5vw,4.2rem)" }}>
-                <div className="flex items-center justify-between gap-1 metric-card-violet py-0 px-1 w-full">
+              <div className="w-full py-1" style={{ fontSize: "clamp(1.6rem,2.8vw,3.2rem)" }}>
+                <div className="flex items-center justify-between gap-1 metric-card-violet py-1 px-2 w-full">
                   <div className={getFlashClass('nhaMay', "text-white font-black")}>{displayData.nhaMay}</div>
                   <div className={getFlashClass('line', "text-white font-black")}>{displayData.line}</div>
                   <div className={getFlashClass('to', "text-white font-black")}>{displayData.to}</div>
@@ -561,25 +568,25 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Layout */}
-              <div className="px-1 py-0 text-center flex flex-col justify-center items-center h-full min-w-0 col-span-1" style={{ minWidth: 0 }}>
-                <div className="text-white font-black mb-0" style={{ fontSize: "clamp(1.0rem,1.8vw,1.5rem)" }}>LAYOUT</div>
+              <div className="px-1 py-1 text-center flex flex-col justify-center items-center min-w-0" style={{ minWidth: 0 }}>
+                <div className="text-white font-black mb-0" style={{ fontSize: "clamp(0.7rem,1.3vw,1.2rem)" }}>LAYOUT</div>
                 <div className={getFlashClass('ldLayout', "font-black text-white rounded px-1 py-0 metric-card-violet flex items-center justify-center w-full")}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}>
+                  style={{ fontSize: "clamp(1.5rem,2.5vw,2.8rem)" }}>
                   {formatNumber(displayData.ldLayout)}
                 </div>
               </div>
 
               {/* Có mặt */}
-              <div className={'py-0 text-center flex flex-col justify-center items-center h-full min-w-0 ' + (hasDiffLayoutCoMat ? 'col-span-2' : 'col-span-1 px-1')}
+              <div className="py-1 px-1 text-center flex flex-col justify-center items-center min-w-0"
                 style={{ minWidth: 0 }}>
-                <div className="text-white font-black mb-0" style={{ fontSize: "clamp(1.0rem,1.8vw,1.5rem)" }}>CÓ MẶT</div>
-                <div className={`relative font-black text-white flex items-center justify-center rounded px-2 py-0 metric-card-violet w-full`}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}>
+                <div className="text-white font-black mb-0" style={{ fontSize: "clamp(0.7rem,1.3vw,1.2rem)" }}>CÓ MẶT</div>
+                <div className={`relative font-black text-white flex items-center justify-center rounded px-2 py-1 metric-card-violet w-full`}
+                  style={{ fontSize: "clamp(1.5rem,2.5vw,2.8rem)" }}>
                   <span className={getFlashClass('ldCoMat', "text-center")}>{formatNumber(displayData.ldCoMat)}</span>
                   {hasDiffLayoutCoMat && (
-                    <div className="absolute right-2">
-                      <div className={getFlashClass('diffLdCoMatLayout', "flex items-center justify-center rounded-sm bg-gradient-to-tr from-[#090013] via-[#140028] to-[#1a0038] text-white font-semibold px-2 py-1 border border-[#c084fc] shadow-[0_0_15px_4px_rgba(192,132,252,0.8),0_0_6px_2px_rgba(255,255,255,0.1)]")}
-                        style={{ fontSize: "clamp(1.6rem,2.8vw,3rem)" }}>
+                    <div className="absolute right-0">
+                      <div className={getFlashClass('diffLdCoMatLayout', "flex items-center justify-center rounded-sm bg-gradient-to-tr from-[#090013] via-[#140028] to-[#1a0038] text-white font-semibold px-1 py-0.5 border border-[#c084fc] shadow-[0_0_15px_4px_rgba(192,132,252,0.8),0_0_6px_2px_rgba(255,255,255,0.1)]")} 
+                        style={{ fontSize: "clamp(1.0rem,1.8vw,2rem)" }}>
                         {displayData.diffLdCoMatLayout > 0 ? `+${formatNumber(displayData.diffLdCoMatLayout)}` : formatNumber(displayData.diffLdCoMatLayout)}
                       </div>
                     </div>
@@ -588,19 +595,19 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Mã hàng */}
-              <div className="px-1 py-0 text-center flex flex-col justify-center h-full min-w-0 col-span-2" style={{ minWidth: 0 }}>
-                <div className="font-black mb-0 text-transparent" style={{ fontSize: "clamp(0.8rem,1.5vw,1.4rem)" }}>ĐH</div>
-                <div className={getFlashClass('maHang', "font-black text-white metric-card-violet rounded px-1 py-0 overflow-hidden min-w-0 flex items-center justify-center")}
-                  style={{ fontSize: "clamp(1.8rem,3vw,3.2rem)" }}>
+              <div className="px-1 py-1 text-center flex flex-col justify-center min-w-0" style={{ minWidth: 0 }}>
+                <div className="font-black mb-0 text-transparent" style={{ fontSize: "clamp(0.7rem,1.3vw,1.2rem)" }}>ĐH</div>
+                <div className={getFlashClass('maHang', "font-black text-white metric-card-violet rounded px-2 py-1 overflow-hidden min-w-0 flex items-center justify-center")}
+                  style={{ fontSize: "clamp(1.5rem,2.5vw,2.8rem)" }}>
                   <div className="truncate w-full text-center">{displayData.maHang}</div>
                 </div>
               </div>
 
               {/* Image */}
-              <div className="p-0 text-center flex flex-col justify-center items-center h-full min-w-[80px] w-full overflow-hidden col-span-1" style={{ minWidth: 0 }}>
+              <div className="p-0 text-center flex flex-col justify-center items-center min-w-[60px] w-full overflow-hidden" style={{ minWidth: 0 }}>
                 {displayData.image && displayData.image !== "" && (
-                  <div className="flex items-center justify-center metric-card-violet p-1 backdrop-blur-sm shadow-xl w-full h-full"
-                    style={{ overflow: "hidden", maxWidth: "100%", maxHeight: "100%", aspectRatio: "1" }}>
+                  <div className="flex items-center justify-center metric-card-violet p-0.5 backdrop-blur-sm shadow-xl w-full"
+                    style={{ overflow: "hidden", maxWidth: "100%", aspectRatio: "1" }}>
                     <Image
                       src={displayData.image !== "#N/A" ? displayData.image : "/window.svg"}
                       alt="COACH"
@@ -609,7 +616,7 @@ export default function TVDisplayHTM({
                       height={120}
                       priority
                       quality={75}
-                      style={{ width: "100%", height: "100%", maxWidth: "clamp(4rem, 8vw, 7.5rem)", maxHeight: "clamp(4rem, 8vw, 7.5rem)", objectFit: "cover", flexShrink: 0 }}
+                      style={{ width: "100%", height: "100%", maxWidth: "clamp(2.8rem, 5vw, 5.5rem)", maxHeight: "clamp(2.8rem, 5vw, 5.5rem)", objectFit: "cover", flexShrink: 0 }}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
                         const parent = target.parentElement
