@@ -522,6 +522,76 @@ html:has(.tv-container) {
     gap: calc(0.45rem * var(--tv-scale-space)) !important;
     padding-bottom: calc(0.42rem * var(--tv-scale-space)) !important;
   }
+  
+  /* CRITICAL: Override all inline clamp() font-sizes for TV 43" */
+  /* Scale down to ~70% of original clamp values */
+  .tv-header [style*="clamp(1.8rem,2.8vw,3rem)"] {
+    font-size: clamp(1.1rem, 1.8vw, 1.8rem) !important; /* Time & metrics */
+  }
+  
+  .tv-header [style*="clamp(2.0rem,3.5vw,4.2rem)"] {
+    font-size: clamp(1.3rem, 2.2vw, 2.5rem) !important; /* Factory/Line/Team */
+  }
+  
+  .tv-header [style*="clamp(1.0rem,1.8vw,1.5rem)"] {
+    font-size: clamp(0.7rem, 1.2vw, 1.0rem) !important; /* Labels */
+  }
+  
+  .tv-header [style*="clamp(1.5rem, 3vw, 4.5rem)"] {
+    font-size: clamp(1.0rem, 2.0vw, 2.8rem) !important; /* Warning */
+  }
+  
+  .tv-header [style*="clamp(1.6rem,2.8vw,3rem)"] {
+    font-size: clamp(1.0rem, 1.8vw, 1.8rem) !important; /* Diff values */
+  }
+  
+  /* Main content font overrides */
+  .tv-main [style*="clamp(1.6rem,3.6vw,4.5rem)"] {
+    font-size: clamp(1.1rem, 2.3vw, 2.8rem) !important; /* Large numbers */
+  }
+  
+  .tv-main [style*="clamp(1.6rem,2.8vw,3rem)"] {
+    font-size: clamp(1.0rem, 1.8vw, 1.8rem) !important; /* Medium numbers */
+  }
+  
+  .tv-main [style*="clamp(0.75rem,1.4vw,1.3rem)"] {
+    font-size: clamp(0.55rem, 0.9vw, 0.9rem) !important; /* Small labels */
+  }
+  
+  /* Reduce header logo sizes */
+  .tv-header [style*="clamp(2.2rem, 4vw, 4.4rem)"] {
+    width: clamp(1.8rem, 3.2vw, 3.5rem) !important;
+    height: clamp(1.8rem, 3.2vw, 3.5rem) !important;
+  }
+  
+  .tv-header [style*="clamp(4rem, 8vw, 7.5rem)"] {
+    max-width: clamp(3.2rem, 6vw, 5.5rem) !important;
+    max-height: clamp(3.2rem, 6vw, 5.5rem) !important;
+  }
+  
+  /* Reduce header grid gap and padding */
+  .tv-header .grid {
+    gap: 0.3rem !important;
+  }
+  
+  .tv-header .px-2 {
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem !important;
+  }
+  
+  .tv-header .py-2 {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  
+  .tv-header .py-1 {
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
+  }
+  
+  .tv-header .mb-1 {
+    margin-bottom: 0.15rem !important;
+  }
 }
 
 /* ========== ERROR SECTION LAYOUT ========== */
