@@ -546,26 +546,23 @@ html:has(.tv-container) {
   }
   
   /* Main content font overrides - CRITICAL FOR TV 43" */
-  /* Production & QC big numbers: 429, 195, 190, 280, 260, etc. */
-  .tv-main [style*="clamp(2rem,4.8vw,5.4rem)"] {
-    font-size: clamp(1.3rem, 2.6vw, 3.2rem) !important; /* Reduce ~45% from 4.8vw to 2.6vw */
+  /* Target by class instead of style attribute to ensure it works */
+  
+  /* Production & QC big numbers: ALL numbers in metric cards */
+  .tv-main .metric-card-group1,
+  .tv-main .metric-card-group2 {
+    font-size: clamp(1.3rem, 2.6vw, 3.2rem) !important; /* Reduce from 4.8vw to 2.6vw (~46% reduction) */
+    line-height: 1.1 !important;
   }
   
-  .tv-main [style*="clamp(1.6rem,3.6vw,4.5rem)"] {
-    font-size: clamp(1.1rem, 2.3vw, 2.8rem) !important; /* Large numbers */
+  /* Section labels */
+  .tv-main .text-white.font-black.leading-tight {
+    font-size: clamp(0.6rem, 1.1vw, 1.2rem) !important;
   }
   
-  .tv-main [style*="clamp(1.6rem,2.8vw,3rem)"] {
-    font-size: clamp(1.0rem, 1.8vw, 1.8rem) !important; /* Medium numbers */
-  }
-  
-  .tv-main [style*="clamp(0.75rem,1.4vw,1.3rem)"] {
-    font-size: clamp(0.55rem, 0.9vw, 0.9rem) !important; /* Small labels */
-  }
-  
-  /* Labels in main content */
-  .tv-main [style*="clamp(0.8rem,1.8vw,2rem)"] {
-    font-size: clamp(0.6rem, 1.1vw, 1.2rem) !important; /* Section labels */
+  /* Percentage displays */
+  .tv-main [class*="bg-gradient"] {
+    font-size: clamp(1.1rem, 2.3vw, 2.8rem) !important;
   }
   
   /* Reduce header logo sizes */
