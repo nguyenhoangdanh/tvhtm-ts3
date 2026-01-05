@@ -291,27 +291,25 @@ html:has(.tv-container) {
 }
 
 /* Preset for TV 43" FHD: 1920x1080 fullscreen (Xiaomi TV A 43" FHD - L43MB-AFSEA)
-   Physical specs:
-   - Display size: 95.7cm (W) x 54cm (H) = 1920x1080 pixels
-   - Pixel pitch: 0.5mm/pixel (54cm / 1080px)
-   - Viewing distance: 1.5-2.5m (recommended ~2m)
-   - PPI: ~51 (vs ~141 for laptop 15.6" FHD)
+   Media query logic:
+   - Width: 1920-2559px (covers FHD fullscreen + slight browser variations)
+   - Height: 1000px+ (ensures fullscreen TV, not windowed laptop)
    
-   Layout strategy for 1080px height:
-   - Header: 110-118px (~10.5% screen)
-   - Production+QC rows: ~720px (~67% screen) - PRIORITY
-   - Error+Timeline: ~185px (~17% screen) - COMPACT
-   - Gaps: ~60px (~5.5% screen)
+   Layout strategy for 1080px viewport height:
+   - Header: 105-115px (~10% viewport)
+   - Production+QC rows: ~720px (~67% viewport) - PRIORITY
+   - Error+Timeline: ~175px (~16% viewport) - ULTRA-COMPACT
+   - Gaps: ~70px (~6.5% viewport)
 */
-@media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
   html:has(.tv-container) {
-    --tv-scale-font: 1.42;  /* Large font: 16*1.42=22.7px → 11.4mm on screen (readable at 2m) */
-    --tv-scale-space: 0.70; /* Tight spacing to maximize Production/QC card area */
-    --tv-header-min: 110px; /* Compact header ~10% screen */
-    --tv-header-max: 118px;
-    --tv-error-max: 78px;   /* Ultra-compact Error section */
-    --tv-timeline-max: 92px; /* Ultra-compact Timeline */
-    --tv-error-timeline-combined-max: 185px; /* Minimal combined - Production+QC gets ~720px */
+    --tv-scale-font: 1.45;  /* Large font for TV viewing (2m distance, 51 PPI) */
+    --tv-scale-space: 0.68; /* Ultra-tight spacing */
+    --tv-header-min: 105px; /* Compact header ~10% viewport */
+    --tv-header-max: 115px;
+    --tv-error-max: 72px;   /* Minimal Error section */
+    --tv-timeline-max: 88px; /* Minimal Timeline */
+    --tv-error-timeline-combined-max: 175px; /* Ultra-compact combined */
   }
 }
 
@@ -390,14 +388,14 @@ html:has(.tv-container) {
   --tv-inner-gap: calc(0.55rem * var(--tv-scale-space));
 }
 
-/* Override spacing for 43" TV to be more compact */
-@media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
+/* Override spacing for TV 43" FHD (1920-2559px width, 1000px+ height) */
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
   .tv-container {
-    --tv-gap: calc(0.40rem * var(--tv-scale-space));
-    --tv-main-pad: calc(0.45rem * var(--tv-scale-space));
-    --tv-card-pad: calc(1.0rem * var(--tv-scale-space));
-    --tv-card-pad-compact: calc(0.65rem * var(--tv-scale-space));
-    --tv-card-gap: calc(0.55rem * var(--tv-scale-space));
+    --tv-gap: calc(0.32rem * var(--tv-scale-space));
+    --tv-main-pad: calc(0.38rem * var(--tv-scale-space));
+    --tv-card-pad: calc(0.95rem * var(--tv-scale-space));
+    --tv-card-pad-compact: calc(0.60rem * var(--tv-scale-space));
+    --tv-card-gap: calc(0.50rem * var(--tv-scale-space));
   }
 }
 
@@ -463,10 +461,10 @@ html:has(.tv-container) {
   gap: calc(0.8rem * var(--tv-scale-space)) !important; /* Gap between Error and Timeline */
 }
 
-/* On 43" TV FHD: ultra-minimal gap to fit within 185px height budget */
-@media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
+/* On 43" TV FHD: ultra-minimal gap to fit within 175px height budget */
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
   .tv-container:has(.error-qc-container) .glass-card-group3 {
-    gap: calc(0.25rem * var(--tv-scale-space)) !important; /* Ultra-minimal gap */
+    gap: calc(0.22rem * var(--tv-scale-space)) !important; /* Minimal gap for tight layout */
   }
 }
 
