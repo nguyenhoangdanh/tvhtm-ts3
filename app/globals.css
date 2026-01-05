@@ -294,12 +294,12 @@ html:has(.tv-container) {
 @media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
   html:has(.tv-container) {
     --tv-scale-font: 0.98;  /* Slightly smaller font for TV viewing distance */
-    --tv-scale-space: 1.0;  /* Tighter spacing */
-    --tv-header-min: 125px; /* Reduced header */
-    --tv-header-max: 135px;
-    --tv-error-max: 115px;  /* Reduced Error section */
-    --tv-timeline-max: 140px; /* Reduced Timeline */
-    --tv-error-timeline-combined-max: 275px; /* Much smaller combined section */
+    --tv-scale-space: 0.95;  /* Tighter spacing */
+    --tv-header-min: 120px; /* Reduced header */
+    --tv-header-max: 130px;
+    --tv-error-max: 95px;  /* Significantly reduced Error section */
+    --tv-timeline-max: 115px; /* Reduced Timeline */
+    --tv-error-timeline-combined-max: 230px; /* Much smaller combined section - more space for Production+QC */
   }
 }
 
@@ -448,7 +448,14 @@ html:has(.tv-container) {
 /* Parent container: use justify-between to add space between Error and Timeline */
 .tv-container:has(.error-qc-container) .glass-card-group3 {
   justify-content: space-between !important;
-  gap: calc(1.0rem * var(--tv-scale-space)) !important; /* Increased gap between Error and Timeline */
+  gap: calc(0.8rem * var(--tv-scale-space)) !important; /* Gap between Error and Timeline */
+}
+
+/* On 43" TV: reduce gap further to fit within tight constraints */
+@media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
+  .tv-container:has(.error-qc-container) .glass-card-group3 {
+    gap: calc(0.4rem * var(--tv-scale-space)) !important;
+  }
 }
 
 /* When Error section exists, it's flex-1 in the parent flex-col.
