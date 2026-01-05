@@ -494,11 +494,6 @@ export default function TVDisplayHTM({
   return (
     <div
       className="h-screen w-screen text-white font-bold overflow-hidden tv-container grid relative"
-      style={{
-        gridTemplateRows: "clamp(120px, 17vh, 175px) 1fr",
-        gap: "0.5rem",
-        margin: 0,
-      }}
     >
       {/* Data Warning Overlay - Absolute positioned in center */}
       {getDataWarning && (
