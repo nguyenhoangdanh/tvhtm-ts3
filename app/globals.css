@@ -291,21 +291,27 @@ html:has(.tv-container) {
 }
 
 /* Preset for TV 43" FHD: 1920x1080 fullscreen (Xiaomi TV A 43" FHD - L43MB-AFSEA)
-   Key differences vs laptop 15.6" FHD:
-   - Pixel density: ~51 PPI (vs ~141 PPI laptop) = 2.8x lower
-   - Viewing distance: 1.5-2.5m (vs 0.5m laptop) = 4x farther
-   - Screen size: 43" (vs 15.6") = 2.8x larger diagonal
-   => Need LARGER fonts but TIGHTER layout to maximize Production/QC card space
+   Physical specs:
+   - Display size: 95.7cm (W) x 54cm (H) = 1920x1080 pixels
+   - Pixel pitch: 0.5mm/pixel (54cm / 1080px)
+   - Viewing distance: 1.5-2.5m (recommended ~2m)
+   - PPI: ~51 (vs ~141 for laptop 15.6" FHD)
+   
+   Layout strategy for 1080px height:
+   - Header: 110-118px (~10.5% screen)
+   - Production+QC rows: ~720px (~67% screen) - PRIORITY
+   - Error+Timeline: ~185px (~17% screen) - COMPACT
+   - Gaps: ~60px (~5.5% screen)
 */
 @media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
   html:has(.tv-container) {
-    --tv-scale-font: 1.40;  /* Large font for TV viewing distance + low PPI */
-    --tv-scale-space: 0.75; /* Compact spacing to maximize content area */
-    --tv-header-min: 115px; /* Compact header */
-    --tv-header-max: 125px;
-    --tv-error-max: 85px;   /* Very compact Error section */
-    --tv-timeline-max: 100px; /* Very compact Timeline */
-    --tv-error-timeline-combined-max: 205px; /* Small combined - give Production+QC ~60% of screen */
+    --tv-scale-font: 1.42;  /* Large font: 16*1.42=22.7px → 11.4mm on screen (readable at 2m) */
+    --tv-scale-space: 0.70; /* Tight spacing to maximize Production/QC card area */
+    --tv-header-min: 110px; /* Compact header ~10% screen */
+    --tv-header-max: 118px;
+    --tv-error-max: 78px;   /* Ultra-compact Error section */
+    --tv-timeline-max: 92px; /* Ultra-compact Timeline */
+    --tv-error-timeline-combined-max: 185px; /* Minimal combined - Production+QC gets ~720px */
   }
 }
 
@@ -457,10 +463,10 @@ html:has(.tv-container) {
   gap: calc(0.8rem * var(--tv-scale-space)) !important; /* Gap between Error and Timeline */
 }
 
-/* On 43" TV FHD: reduce gap to minimum to fit within tight height constraints */
+/* On 43" TV FHD: ultra-minimal gap to fit within 185px height budget */
 @media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
   .tv-container:has(.error-qc-container) .glass-card-group3 {
-    gap: calc(0.3rem * var(--tv-scale-space)) !important; /* Minimal gap */
+    gap: calc(0.25rem * var(--tv-scale-space)) !important; /* Ultra-minimal gap */
   }
 }
 
