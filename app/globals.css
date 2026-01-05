@@ -500,11 +500,11 @@ html:has(.tv-container) {
   min-height: 0 !important;
 }
 
-/* CRITICAL: Row 2 (Error + Timeline) should have fixed max height */
+/* CRITICAL: Row 2 (Error + Timeline) should have fixed max height, but allow shrinking if content smaller */
 .tv-container .tv-main > .glass-card-group3 {
-  flex: 0 0 auto !important;
+  flex: 0 1 auto !important; /* Allow shrink */
   max-height: var(--tv-error-timeline-combined-max, 280px) !important;
-  min-height: var(--tv-error-timeline-combined-max, 280px) !important;
+  /* Removed min-height - let content determine natural height within max-height cap */
 }
 
 /* Internal card grids (4 columns in Production, 2 columns in QC): use moderate gap for readability */

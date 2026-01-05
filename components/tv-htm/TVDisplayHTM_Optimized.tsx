@@ -512,7 +512,7 @@ export default function TVDisplayHTM({
       )}
 
       {/* Modern Header */}
-      <div className="tv-header glass-header flex-shrink-0 z-20" style={{ height: '100%' }}>
+      <div className="tv-header glass-header flex-shrink-0 z-20">
         <div className="grid gap-2 h-full items-center px-2 grid-cols-12" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
           {/* Logo Section */}
           <div className="col-span-1 h-full w-full flex flex-col items-center justify-between py-2 min-w-0">
@@ -806,11 +806,11 @@ export default function TVDisplayHTM({
           </div>
         </div>
 
-        {/* Combined Error Analysis & Hourly Timeline */}
-        <div className={`glass-card-group3 border border-red-400/30 flex flex-col ${hasErrors ? 'flex-1 p-1 gap-2' : 'flex-1 p-4 gap-4'}`}>
-          {/* Error Analysis Section */}
+        {/* Combined Error Analysis & Hourly Timeline - NO flex-1, use CSS max-height */}
+        <div className={`glass-card-group3 border border-red-400/30 flex flex-col flex-none ${hasErrors ? 'p-1 gap-2' : 'p-4 gap-4'}`}>
+          {/* Error Analysis Section - NO flex-1, use CSS max-height cap */}
           {hasErrors && (
-            <div className="flex-1">
+            <div className="flex-none">
               <div className="flex h-full error-qc-container items-stretch gap-2 justify-start">
                 {getOptimizedErrorList().map((errorItem, displayIndex) => (
                   <div key={displayIndex} className="flex flex-col items-center gap-1 flex-1 min-w-[85px] max-w-[290px]">
@@ -840,8 +840,8 @@ export default function TVDisplayHTM({
             </div>
           )}
 
-          {/* Hourly Timeline Section */}
-          <div className={`${hasErrors ? 'flex-1' : 'flex-grow'}`}>
+          {/* Hourly Timeline Section - NO flex-1, use CSS max-height cap */}
+          <div className="flex-none">
             <div className="grid grid-cols-11 h-full hourly-timeline-container">
               {[
                 { time: "8:30", field: "h830" }, { time: "9:30", field: "h930" }, { time: "10:30", field: "h1030" },
