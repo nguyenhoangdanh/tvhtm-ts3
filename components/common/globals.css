@@ -246,7 +246,6 @@ h1, h2, h3, h4, h5, h6,
 .tv-container {
   width: 100vw;
   height: 100vh;
-  height: 100dvh;
   position: fixed;
   top: 0;
   left: 0;
@@ -257,10 +256,8 @@ h1, h2, h3, h4, h5, h6,
   overflow: hidden;
   min-width: 100vw;
   min-height: 100vh;
-  min-height: 100dvh;
   max-width: 100vw;
   max-height: 100vh;
-  max-height: 100dvh;
   background: linear-gradient(
     135deg,
     #0a0c17 0%,
@@ -271,248 +268,140 @@ h1, h2, h3, h4, h5, h6,
   );
 }
 
-/* ==================== TV LAYOUT TUNING (ZERO-OVERFLOW PRESET SYSTEM) ==================== */
-/* CRITICAL: Prevent layout overflow on ALL screen sizes (14"-75") using hard-coded
-   preset scales. Each breakpoint defines: root font-size, spacing, header height, 
-   and Error section max-height. NO TOLERANCE for overflow.
+/* ==================== TV LAYOUT TUNING (RESPONSIVE) ==================== */
+/* Goal: keep layout balanced and prevent overflow on 14"-75" displays.
    IMPORTANT: CSS-only. No component logic changes. */
 
-/* ========== PRESET SCALE DEFINITIONS ========== */
-/* Base preset: Full HD 1920x1080 (24"/43" TVs) - most critical */
+/* Apply scaling only when TV is rendered (modern Chromium supports :has). */
 html:has(.tv-container) {
-  --tv-scale-font: 1.05;  /* Increased font for better readability */
-  --tv-scale-space: 1.12; /* Increased spacing to fill screen properly */
-  --tv-header-min: 140px; /* Minimum header height to prevent overflow */
-  --tv-header-max: 152px; /* Hard cap header height - increased by 12px for 15.6" */
-  --tv-error-max: 140px;  /* Cap Error section - increased by 20px */
-  --tv-timeline-max: 150px; /* Keep Timeline at 150px max for 24" screen */
-  --tv-error-timeline-combined-max: 345px; /* Cap entire Error+Timeline section - increased by 40px */
-  font-size: calc(16px * var(--tv-scale-font));
+  /* Root font-size influences all rem-based clamp() values inside the TV page. */
+  font-size: 16px;
 }
 
-/* Preset 1: Ultra-tight laptop (1366x768 / 14") */
-@media (max-width: 1366px), (max-height: 768px) {
+/* Small laptops (14"-15.6"), especially 1366x768: scale down slightly. */
+@media (max-width: 1440px), (max-height: 900px) {
   html:has(.tv-container) {
-    --tv-scale-font: 0.80;
-    --tv-scale-space: 0.70;
-    --tv-header-min: 118px;
-    --tv-header-max: 128px; /* +10px */
-    --tv-error-max: 125px; /* +15px proportional */
-    --tv-timeline-max: 130px;
-    --tv-error-timeline-combined-max: 300px; /* +30px proportional */
+    font-size: 14px;
   }
 }
 
-/* Preset 2: Common laptop (1440x900 / 15.6") */
-@media (min-width: 1367px) and (max-width: 1699px), (min-height: 769px) and (max-height: 899px) {
+/* 2K / large panels: slightly larger for viewing distance. */
+@media (min-width: 2560px) {
   html:has(.tv-container) {
-    --tv-scale-font: 0.85;
-    --tv-scale-space: 0.75;
-    --tv-header-min: 128px;
-    --tv-header-max: 138px; /* +14px proportional */
-    --tv-error-max: 136px; /* +18px proportional */
-    --tv-timeline-max: 140px;
-    --tv-error-timeline-combined-max: 320px; /* +35px proportional */
+    font-size: 17px;
   }
 }
 
-/* Preset 3: Full HD 1920x1080 with reduced viewport (browser chrome) */
-@media (min-width: 1700px) and (max-width: 2100px) and (max-height: 980px) {
+/* Full HD TVs (e.g., 43" @ 1920x1080): slightly larger than laptop for readability */
+@media (min-width: 1920px) and (max-width: 2559px) {
   html:has(.tv-container) {
-    --tv-scale-font: 0.90;
-    --tv-scale-space: 0.82;
-    --tv-header-min: 126px;
-    --tv-header-max: 136px; /* +16px */
-    --tv-error-max: 136px; /* +18px proportional */
-    --tv-timeline-max: 145px;
-    --tv-error-timeline-combined-max: 325px; /* +35px proportional */
+    font-size: 17px;
+  }
+
+  .tv-container {
+    --tv-gap: clamp(0.3rem, 0.7vh, 0.55rem);
+    --tv-main-pad: clamp(0.35rem, 1.0vh, 0.75rem);
+    --tv-card-pad: clamp(0.6rem, 1.35vh, 1.4rem);
+    --tv-card-pad-compact: clamp(0.45rem, 1.0vh, 1.05rem);
+    --tv-card-gap: clamp(0.35rem, 1.0vh, 0.85rem);
   }
 }
 
-/* Preset 4: 2K panels (2560x1440 / 27") */
-@media (min-width: 2560px) and (max-width: 3839px) {
-  html:has(.tv-container) {
-    --tv-scale-font: 1.02;
-    --tv-scale-space: 0.92;
-    --tv-header-min: 158px;
-    --tv-header-max: 174px; /* +12px proportional to larger screen */
-    --tv-error-max: 177px; /* +22px proportional */
-    --tv-timeline-max: 200px;
-    --tv-error-timeline-combined-max: 430px; /* +45px proportional */
-  }
-}
-
-/* Preset 5: 4K+ panels (3840x2160 / 55"+) */
+/* 4K+ panels: bump a bit more. */
 @media (min-width: 3840px) {
   html:has(.tv-container) {
-    --tv-scale-font: 1.10;
-    --tv-scale-space: 1.0;
-    --tv-header-min: 182px;
-    --tv-header-max: 200px; /* +15px for 4K */
-    --tv-error-max: 205px; /* +25px proportional */
-    --tv-timeline-max: 240px;
-    --tv-error-timeline-combined-max: 505px; /* +50px proportional */
+    font-size: 18px;
   }
 }
 
-/* ========== SPACING TOKENS (scale-derived) ========== */
+/* Shared spacing tokens for the TV view */
 .tv-container {
-  --tv-gap: calc(0.50rem * var(--tv-scale-space)); /* Increased main container gap */
-  --tv-main-pad: calc(0.60rem * var(--tv-scale-space)); /* Increased main padding */
-  --tv-card-pad: calc(1.25rem * var(--tv-scale-space)); /* Increased card padding for better display */
-  --tv-card-pad-compact: calc(0.85rem * var(--tv-scale-space)); /* Increased compact padding */
-  --tv-card-gap: calc(0.75rem * var(--tv-scale-space)); /* Increased gap between cards to fill screen */
-  --tv-inner-gap: calc(0.55rem * var(--tv-scale-space)); /* Increased grid gap inside cards */
+  --tv-gap: clamp(0.25rem, 0.6vh, 0.5rem);
+  --tv-main-pad: clamp(0.25rem, 0.8vh, 0.6rem);
+  --tv-card-pad: clamp(0.5rem, 1.2vh, 1.25rem);
+  --tv-card-pad-compact: clamp(0.35rem, 0.9vh, 0.9rem);
+  --tv-card-gap: clamp(0.25rem, 0.9vh, 0.75rem);
 }
 
-/* ========== HARD OVERRIDES (component inline styles) ========== */
-
-/* Override component's inline gap */
+/* Override inline gap (component sets gap via style) */
 .tv-container {
   gap: var(--tv-gap) !important;
 }
 
-/* Override component's inline gridTemplateRows - use hard-cap from preset */
-.tv-container {
-  grid-template-rows: minmax(var(--tv-header-min, 120px), var(--tv-header-max)) 1fr !important;
+/* Prevent header taking too much vertical space on short-height screens */
+@media (max-height: 900px) {
+  .tv-container {
+    grid-template-rows: clamp(105px, 15vh, 155px) 1fr !important;
+  }
 }
 
-/* Ensure header respects min and max height */
-.tv-container .tv-header {
-  min-height: var(--tv-header-min, 120px) !important;
-  max-height: var(--tv-header-max) !important;
-  overflow: hidden;
+@media (max-height: 800px) {
+  .tv-container {
+    grid-template-rows: clamp(95px, 14vh, 140px) 1fr !important;
+  }
 }
 
-/* Kill ALL extra top margin from .tv-main (component adds mt-1/mt-2) */
+/* Normalize internal paddings/gaps so the page doesn't overflow */
 .tv-container .tv-main {
-  margin-top: 0 !important;
   padding: var(--tv-main-pad) !important;
   gap: var(--tv-card-gap) !important;
   overflow: hidden;
-  min-height: 0;
 }
 
-/* ========== FLEX/GRID SHRINK ENABLEMENT ========== */
-/* All containers MUST be shrinkable (min-height: 0 defeats default min-content) */
-.tv-container .tv-header,
-.tv-container .tv-main,
-.tv-container .tv-main > div,
-.tv-container .tv-main > div > div,
-.tv-container .glass-card-group1,
-.tv-container .glass-card-group2,
-.tv-container .glass-card-group3 {
-  min-height: 0;
-}
-
-/* ========== CARD PADDING OVERRIDES ========== */
-/* Replace Tailwind p-6/p-8/px-4/py-2 with scale-based values */
+/* Group cards: replace big Tailwind paddings (p-6/p-8) with responsive padding */
 .tv-container .glass-card-group1,
 .tv-container .glass-card-group2,
 .tv-container .glass-card-group3 {
   padding: var(--tv-card-pad) !important;
 }
 
-/* When Error section exists: ultra-compact padding */
+/* When Error section exists, keep it more compact to preserve timeline height */
 .tv-container:has(.error-qc-container) .glass-card-group1,
 .tv-container:has(.error-qc-container) .glass-card-group2,
 .tv-container:has(.error-qc-container) .glass-card-group3 {
   padding: var(--tv-card-pad-compact) !important;
 }
 
-/* ========== ERROR ANALYSIS HEIGHT CAP (CRITICAL) ========== */
-/* Parent container: use justify-between to add space between Error and Timeline */
-.tv-container:has(.error-qc-container) .glass-card-group3 {
-  justify-content: space-between !important;
-  gap: calc(1.0rem * var(--tv-scale-space)) !important; /* Increased gap between Error and Timeline */
-}
-
-/* When Error section exists, it's flex-1 in the parent flex-col.
-   We MUST cap it to prevent stealing space from timeline below. */
-.tv-container:has(.error-qc-container) .glass-card-group3 > div:first-child {
-  flex: 0 0 auto !important; /* Do NOT grow */
-  max-height: var(--tv-error-max) !important;
-  overflow: hidden;
-}
-
-/* Timeline section: take remaining space, must shrink, cap at preset max */
-.tv-container:has(.error-qc-container) .glass-card-group3 > div:last-child {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-  max-height: var(--tv-timeline-max) !important; /* Cap Timeline height per preset */
-}
-
-/* When NO Error section: give timeline a bit more breathing room */
-.tv-container:not(:has(.error-qc-container)) .glass-card-group3 {
-  padding: var(--tv-card-pad) !important;
-  gap: calc(0.55rem * var(--tv-scale-space)) !important;
-}
-
-/* ========== GRID GAP NORMALIZATION ========== */
-/* Row 1 (Production + QC grid): component toggles gap-3 vs no gap */
+/* Row 1 grid gap (defaults differ between hasErrors true/false). Normalize. */
 .tv-container .tv-main > .grid {
   gap: var(--tv-card-gap) !important;
 }
 
-/* CRITICAL: Row 1 (Production + QC cards) should fill available space */
-.tv-container .tv-main > .grid:first-child {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
-}
-
-/* CRITICAL: Row 2 (Error + Timeline) should have fixed max height */
-.tv-container .tv-main > .glass-card-group3 {
-  flex: 0 0 auto !important;
-  max-height: var(--tv-error-timeline-combined-max, 280px) !important;
-  min-height: var(--tv-error-timeline-combined-max, 280px) !important;
-}
-
-/* Internal card grids (4 columns in Production, 2 columns in QC): use moderate gap for readability */
-.tv-container .glass-card-group1 > div.grid,
-.tv-container .glass-card-group2 > div.grid {
-  gap: calc(0.70rem * var(--tv-scale-space)) !important; /* Increased internal grid gap */
-  padding-bottom: calc(0.65rem * var(--tv-scale-space)) !important; /* Increased bottom padding */
-}
-
-/* ========== ERROR SECTION LAYOUT ========== */
+/* Error Analysis: keep single row, prevent it from stretching too tall */
 .tv-container .error-qc-container {
-  display: flex;
   align-items: stretch;
-  gap: calc(0.40rem * var(--tv-scale-space)) !important;
+  gap: clamp(0.25rem, 0.7vw, 0.5rem) !important;
   overflow: hidden;
 }
 
-/* Error items: shrink on laptops to avoid horizontal overflow */
-@media (max-width: 1699px) {
+/* Error item widths: reduce min-width on laptops to avoid horizontal overflow */
+@media (max-width: 1440px) {
   .tv-container .error-qc-container > div {
-    min-width: clamp(58px, 5.2vw, 78px) !important;
-    max-width: clamp(115px, 10.5vw, 180px) !important;
+    min-width: clamp(56px, 5.0vw, 80px) !important;
+    max-width: clamp(110px, 10vw, 180px) !important;
   }
 }
 
-/* ========== TIMELINE SECTION ========== */
-/* All timeline containers must be shrinkable */
-.tv-container .hourly-timeline-container,
-.tv-container .hourly-timeline-item,
-.tv-container .hourly-timeline-content {
-  min-height: 0;
+/* When no Error Analysis, give timeline more breathing room without huge padding */
+.tv-container:not(:has(.error-qc-container)) .glass-card-group3 {
+  padding: var(--tv-card-pad) !important;
+  gap: clamp(0.35rem, 1.2vh, 0.9rem) !important;
 }
 
-/* Timeline header: tighten padding on small screens */
-@media (max-height: 980px) {
+/* Timeline: tighten borders/padding slightly on small screens to prevent vertical overflow */
+@media (max-height: 900px) {
   .tv-container .hourly-timeline-header {
-    padding-top: 0.12rem !important;
-    padding-bottom: 0.12rem !important;
+    padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
   }
 }
 
-/* ========== FONT RENDERING OPTIMIZATIONS ========== */
 /* Reduce stroke thickness inside TV to avoid clipped glyphs in tight boxes */
-@media (max-width: 1699px), (max-height: 980px) {
+@media (max-width: 1440px), (max-height: 900px) {
   .tv-container .font-bold,
   .tv-container .font-semibold,
   .tv-container .font-black {
-    -webkit-text-stroke: 0.12px currentColor !important;
+    -webkit-text-stroke: 0.15px currentColor !important;
   }
 }
 
