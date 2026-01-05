@@ -348,6 +348,7 @@ html:has(.tv-container) {
     --tv-error-max: 65px;   /* Compact Error */
     --tv-timeline-max: 80px; /* Compact Timeline */
     --tv-error-timeline-combined-max: 160px; /* Compact combined */
+    font-size: calc(16px * var(--tv-scale-font)) !important; /* CRITICAL: Override base font-size */
   }
 }
 
@@ -510,8 +511,17 @@ html:has(.tv-container) {
 /* Internal card grids (4 columns in Production, 2 columns in QC): use moderate gap for readability */
 .tv-container .glass-card-group1 > div.grid,
 .tv-container .glass-card-group2 > div.grid {
-  gap: calc(0.70rem * var(--tv-scale-space)) !important; /* Increased internal grid gap */
-  padding-bottom: calc(0.65rem * var(--tv-scale-space)) !important; /* Increased bottom padding */
+  gap: calc(0.70rem * var(--tv-scale-space)) !important;
+  padding-bottom: calc(0.65rem * var(--tv-scale-space)) !important;
+}
+
+/* TV 43" FHD: Reduce internal grid gap to make cards more compact */
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
+  .tv-container .glass-card-group1 > div.grid,
+  .tv-container .glass-card-group2 > div.grid {
+    gap: calc(0.45rem * var(--tv-scale-space)) !important;
+    padding-bottom: calc(0.42rem * var(--tv-scale-space)) !important;
+  }
 }
 
 /* ========== ERROR SECTION LAYOUT ========== */
