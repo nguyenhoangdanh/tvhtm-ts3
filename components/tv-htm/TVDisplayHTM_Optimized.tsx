@@ -637,7 +637,7 @@ export default function TVDisplayHTM({
               {/* MỤC TIÊU SL NGÀY */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>MỤC TIÊU SL NGÀY</div>
-                <div className={getFlashClass('targetNgay', "metric-card-group2 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('targetNgay', "metric-card-group2 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.targetNgay)}
                 </div>
               </div>
@@ -645,7 +645,7 @@ export default function TVDisplayHTM({
               {/* LK K.HOẠCH */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>LK K.HOẠCH</div>
-                <div className={getFlashClass('lkkh', "metric-card-group2 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('lkkh', "metric-card-group2 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.lkkh)}
                 </div>
               </div>
@@ -653,7 +653,7 @@ export default function TVDisplayHTM({
               {/* LK T.HIỆN */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>LK T.HIỆN</div>
-                <div className={getFlashClass('lkth', "metric-card-group2 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('lkth', "metric-card-group2 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.lkth)}
                 </div>
                 <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
@@ -672,7 +672,7 @@ export default function TVDisplayHTM({
                   const colorScheme = getPercentageColor(displayData.phanTramHt);
                   return getFlashClass('phanTramHt', `metric-card-full-color font-black ${colorScheme.bgColor} ${colorScheme.textColor} ${colorScheme.borderColor} border ${colorScheme.shadow} rounded-lg`);
                 })()}
-                  style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                  style={{ lineHeight: 1.2 }}>
                   {formatPercentage(displayData.phanTramHt, 0)}%
                 </div>
                 <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
@@ -689,7 +689,7 @@ export default function TVDisplayHTM({
               {/* MỤC TIÊU SL GIỜ */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>MỤC TIÊU SL GIỜ</div>
-                <div className={getFlashClass('targetGio', "metric-card-group2 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('targetGio', "metric-card-group2 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.targetGio)}
                 </div>
               </div>
@@ -697,7 +697,7 @@ export default function TVDisplayHTM({
               {/* PPH MỤC TIÊU */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>PPH MỤC TIÊU</div>
-                <div className={getFlashClass('pphKh', "metric-card-group2 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('pphKh', "metric-card-group2 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatPercentage(displayData.pphKh, 2)}
                 </div>
               </div>
@@ -705,7 +705,7 @@ export default function TVDisplayHTM({
               {/* PPH T.HIỆN */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>PPH T.HIỆN</div>
-                <div className={getFlashClass('pphTh', "metric-card-group2 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('pphTh', "metric-card-group2 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatPercentage(displayData.pphTh, 2)}
                 </div>
                 <div style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
@@ -724,7 +724,7 @@ export default function TVDisplayHTM({
                   const colorScheme = getPercentageColor(displayData.phanTramHtPph);
                   return getFlashClass('phanTramHtPph', `metric-card-full-color font-black ${colorScheme.bgColor} ${colorScheme.textColor} ${colorScheme.borderColor} border ${colorScheme.shadow} rounded-lg`);
                 })()}
-                  style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                  style={{ lineHeight: 1.2 }}>
                   {formatPercentage(displayData.phanTramHtPph, 0)}%
                 </div>
                 <div style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
@@ -744,7 +744,7 @@ export default function TVDisplayHTM({
               {/* LK QC KIỂM */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>LK QC KIỂM</div>
-                <div className={getFlashClass('tongKiem', "metric-card-group1 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('tongKiem', "metric-card-group1 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.tongKiem)}
                 </div>
                 <div className={`font-black flex items-center justify-center ${currentDatLan1 > 0 ? 'text-green-400' : currentDatLan1 < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}>
@@ -755,7 +755,7 @@ export default function TVDisplayHTM({
               {/* LK TÚI ĐẠT */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>LK TÚI ĐẠT</div>
-                <div className={getFlashClass('tongDat', "metric-card-group1 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('tongDat', "metric-card-group1 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.tongDat)}
                 </div>
                 {/* <div className={`font-black flex items-center justify-center ${taichedat > 0 ? 'text-green-400' : taichedat < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}>
@@ -773,7 +773,7 @@ export default function TVDisplayHTM({
               {/* LK TÚI LỖI */}
               <div className="text-center">
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: "clamp(0.8rem,1.8vw,2rem)" }}>LK TÚI LỖI</div>
-                <div className={getFlashClass('tongLoi', "metric-card-group1 font-black")} style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                <div className={getFlashClass('tongLoi', "metric-card-group1 font-black")} style={{ lineHeight: 1.2 }}>
                   {formatNumber(displayData.tongLoi)}
                 </div>
                 {tuiChosua > 0 && taichedat > 0 && (
@@ -791,7 +791,7 @@ export default function TVDisplayHTM({
                   const colorScheme = getPercentageColorForRFT(displayData.rft);
                   return getFlashClass('rft', `metric-card-full-color font-black ${colorScheme.bgColor} ${colorScheme.textColor} ${colorScheme.borderColor} border ${colorScheme.shadow} rounded-lg`);
                 })()}
-                  style={{ fontSize: "clamp(2rem,4.8vw,5.4rem)", lineHeight: 1.2 }}>
+                  style={{ lineHeight: 1.2 }}>
                   {formatPercentage(displayData.rft, 0)}%
                 </div>
                 <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: "clamp(1rem,2vw,3rem)" }}>
