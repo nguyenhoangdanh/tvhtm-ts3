@@ -512,7 +512,7 @@ export default function TVDisplayHTM({
       )}
 
       {/* Modern Header */}
-      <div className="tv-header glass-header flex-shrink-0 z-20" style={{ maxHeight: '80px' }}>
+      <div className="tv-header glass-header flex-shrink-0 z-20">
         <div className="grid gap-1 h-full items-center px-1 grid-cols-[minmax(80px,1fr)_11fr]" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
           {/* Logo Section */}
           <div className="h-full w-full flex flex-col items-center justify-between py-1 min-w-0">
