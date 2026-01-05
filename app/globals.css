@@ -290,16 +290,22 @@ html:has(.tv-container) {
   font-size: calc(16px * var(--tv-scale-font));
 }
 
-/* Preset for 43" TV: 1920x1080 fullscreen - REDUCE heights to give Production+QC more space */
+/* Preset for TV 43" FHD: 1920x1080 fullscreen (Xiaomi TV A 43" FHD - L43MB-AFSEA)
+   Key differences vs laptop 15.6" FHD:
+   - Pixel density: ~51 PPI (vs ~141 PPI laptop) = 2.8x lower
+   - Viewing distance: 1.5-2.5m (vs 0.5m laptop) = 4x farther
+   - Screen size: 43" (vs 15.6") = 2.8x larger diagonal
+   => Need LARGER fonts but TIGHTER layout to maximize Production/QC card space
+*/
 @media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
   html:has(.tv-container) {
-    --tv-scale-font: 0.98;  /* Slightly smaller font for TV viewing distance */
-    --tv-scale-space: 0.95;  /* Tighter spacing */
-    --tv-header-min: 120px; /* Reduced header */
-    --tv-header-max: 130px;
-    --tv-error-max: 95px;  /* Significantly reduced Error section */
-    --tv-timeline-max: 115px; /* Reduced Timeline */
-    --tv-error-timeline-combined-max: 230px; /* Much smaller combined section - more space for Production+QC */
+    --tv-scale-font: 1.40;  /* Large font for TV viewing distance + low PPI */
+    --tv-scale-space: 0.75; /* Compact spacing to maximize content area */
+    --tv-header-min: 115px; /* Compact header */
+    --tv-header-max: 125px;
+    --tv-error-max: 85px;   /* Very compact Error section */
+    --tv-timeline-max: 100px; /* Very compact Timeline */
+    --tv-error-timeline-combined-max: 205px; /* Small combined - give Production+QC ~60% of screen */
   }
 }
 
@@ -451,10 +457,10 @@ html:has(.tv-container) {
   gap: calc(0.8rem * var(--tv-scale-space)) !important; /* Gap between Error and Timeline */
 }
 
-/* On 43" TV: reduce gap further to fit within tight constraints */
+/* On 43" TV FHD: reduce gap to minimum to fit within tight height constraints */
 @media (min-width: 1920px) and (min-height: 1000px) and (max-width: 1920px) {
   .tv-container:has(.error-qc-container) .glass-card-group3 {
-    gap: calc(0.4rem * var(--tv-scale-space)) !important;
+    gap: calc(0.3rem * var(--tv-scale-space)) !important; /* Minimal gap */
   }
 }
 
