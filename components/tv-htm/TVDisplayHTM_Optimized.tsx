@@ -53,15 +53,14 @@ export default function TVDisplayHTM({
   // Detect large screen (TV 43"+) for compact header - MUST be before any early returns
   useEffect(() => {
     const checkScreenSize = () => {
-      // Use physical screen width OR viewport * DPR for accurate detection
-      const physicalWidth = window.screen?.width || window.innerWidth;
       const viewportWidth = window.innerWidth;
-      const dpr = window.devicePixelRatio || 1;
-      const actualWidth = viewportWidth * dpr;
+      const viewportHeight = window.innerHeight;
       
-      // TV 43" FHD: physical=1920, viewport=961, DPR=2
-      // Use physical screen width as primary detection
-      const isTVScreen = physicalWidth >= 1920 || actualWidth >= 1920;
+      // TV 43" FHD with Google TV browser: viewport ~960x540 (browser zoomed)
+      // 15.6" laptop: ~1366x768 or 1920x1080
+      // 24" monitor: ~1920x1080 or 2560x1440
+      // Detect TV by viewport range: 900-1100px width (unique to TV 43" with browser zoom)
+      const isTVScreen = viewportWidth >= 900 && viewportWidth <= 1100;
       setIsLargeScreen(isTVScreen);
     };
     checkScreenSize();
