@@ -499,56 +499,53 @@ html:has(.tv-container) {
   grid-template-rows: minmax(var(--tv-header-min, 120px), var(--tv-header-max)) 1fr !important;
 }
 
+/* ==================== TV 43" FHD SPECIFIC ADJUSTMENTS (Resolution-based) ==================== */
+/* Target ONLY 1920x1080 displays (TV 43" FHD) using resolution query */
+@media (min-resolution: 96dpi) and (min-width: 1920px) and (max-width: 1920px) {
+  .tv-container {
+    grid-template-rows: minmax(70px, 90px) 1fr !important;
+  }
+  
+  .tv-header {
+    max-height: 90px !important;
+    min-height: 70px !important;
+  }
+  
+  /* Scale down all header content proportionally */
+  .tv-header .font-black.leading-none {
+    font-size: clamp(1.4rem, 2.4vw, 2.6rem) !important;
+  }
+  
+  .tv-header button,
+  .tv-header button + div {
+    width: clamp(1.8rem, 3.2vw, 3.6rem) !important;
+    height: clamp(1.8rem, 3.2vw, 3.6rem) !important;
+  }
+  
+  .tv-header .flex.flex-col > div:first-child {
+    font-size: clamp(0.7rem, 1.3vw, 1.5rem) !important;
+  }
+  
+  .tv-header .metric-card-group1,
+  .tv-header .metric-card-violet {
+    font-size: clamp(1.5rem, 2.6vw, 3rem) !important;
+    padding: 0.15rem 0.4rem !important;
+  }
+  
+  .tv-header .grid {
+    gap: 0.3rem !important;
+  }
+  
+  .tv-header .flex.flex-col {
+    gap: 0.2rem !important;
+  }
+}
+
 /* Ensure header respects min and max height */
 .tv-container .tv-header {
   min-height: var(--tv-header-min, 120px) !important;
   max-height: var(--tv-header-max) !important;
   overflow: hidden;
-}
-
-/* ==================== VIEWPORT-BASED DYNAMIC SCALING (NO MEDIA QUERY) ==================== */
-/* Use viewport height to automatically scale header - works for ALL screen sizes */
-.tv-container .tv-header {
-  /* Dynamic max-height based on viewport: larger screens get proportionally smaller header */
-  max-height: calc(8vh + 20px) !important; /* 8% of viewport height + 20px buffer */
-  min-height: calc(6vh + 10px) !important;
-}
-
-/* Scale all header content proportionally to viewport height */
-.tv-container .tv-header * {
-  font-size: calc(0.8vw + 0.6vh) !important; /* Combine width and height for balanced scaling */
-}
-
-/* Logo buttons: scale with viewport */
-.tv-container .tv-header button,
-.tv-container .tv-header button + div {
-  width: calc(2.5vw + 1vh) !important;
-  height: calc(2.5vw + 1vh) !important;
-  max-width: 4rem !important;
-  max-height: 4rem !important;
-}
-
-/* Time display: responsive to viewport height */
-.tv-container .tv-header .font-black.leading-none {
-  font-size: calc(1.2vw + 1vh) !important;
-}
-
-/* Labels: scale down on larger viewports */
-.tv-container .tv-header .flex.flex-col > div:first-child {
-  font-size: calc(0.6vw + 0.4vh) !important;
-}
-
-/* Metric values: balance between width and height */
-.tv-container .tv-header .metric-card-group1,
-.tv-container .tv-header .metric-card-violet {
-  font-size: calc(1vw + 0.8vh) !important;
-  padding: calc(0.2vh) calc(0.4vw) !important;
-}
-
-/* Diff badge */
-.tv-container .tv-header .absolute.right-0 > div {
-  font-size: calc(0.7vw + 0.5vh) !important;
-  padding: calc(0.1vh) calc(0.3vw) !important;
 }
 
 /* Kill ALL extra top margin from .tv-main (component adds mt-1/mt-2) */
