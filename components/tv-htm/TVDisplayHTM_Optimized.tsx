@@ -515,7 +515,7 @@ export default function TVDisplayHTM({
       <div className="tv-header glass-header flex-shrink-0 z-20">
         <div className="grid gap-1 h-full items-center px-1 grid-cols-[minmax(70px,auto)_1fr]" style={{ width: '100%', minWidth: 0, overflow: 'hidden' }}>
           {/* Logo Section */}
-          <div className="h-full w-full flex flex-col items-center justify-center gap-0 py-1 min-w-0">
+          <div className="h-full w-full flex flex-col items-center justify-center gap-0 min-w-0">
             <div className="flex flex-row justify-center items-center gap-0">
               <button
                 className="relative bg-white/95 rounded backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-200 cursor-pointer group"
@@ -559,8 +559,8 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Factory/Line/Team */}
-              <div className="w-full py-1" style={{ fontSize: "clamp(1.6rem,2.8vw,3.2rem)" }}>
-                <div className="flex items-center justify-between gap-1 metric-card-violet py-1 px-2 w-full">
+              <div className="w-full mt-2" style={{ fontSize: "clamp(1.6rem,2.8vw,3.2rem)" }}>
+                <div className="flex items-center justify-between gap-1 metric-card-violet py-0.5 px-2 w-full">
                   <div className={getFlashClass('nhaMay', "text-white font-black")}>{displayData.nhaMay}</div>
                   <div className={getFlashClass('line', "text-white font-black")}>{displayData.line}</div>
                   <div className={getFlashClass('to', "text-white font-black")}>{displayData.to}</div>
@@ -604,19 +604,19 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Image */}
-              <div className="p-0 text-center flex flex-col justify-center items-center min-w-[60px] w-full overflow-hidden" style={{ minWidth: 0 }}>
+              <div className="text-center flex flex-col justify-center items-center min-w-[60px] w-full h-full p-1 overflow-hidden" style={{ minWidth: 0 }}>
                 {displayData.image && displayData.image !== "" && (
-                  <div className="flex items-center justify-center metric-card-violet p-0.5 backdrop-blur-sm shadow-xl w-full"
+                  <div className="flex items-center justify-center metric-card-violet p-1 backdrop-blur-sm shadow-xl w-full h-full"
                     style={{ overflow: "hidden", maxWidth: "100%", aspectRatio: "1" }}>
                     <Image
                       src={displayData.image !== "#N/A" ? displayData.image : "/window.svg"}
                       alt="COACH"
-                      className="object-cover rounded-md"
+                      className="object-contain rounded-md"
                       width={120}
                       height={120}
                       priority
                       quality={75}
-                      style={{ width: "100%", height: "100%", maxWidth: "clamp(2.8rem, 5vw, 5.5rem)", maxHeight: "clamp(2.8rem, 5vw, 5.5rem)", objectFit: "cover", flexShrink: 0 }}
+                      style={{ width: "100%", height: "100%", objectFit: "contain", flexShrink: 0 }}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement
                         const parent = target.parentElement
@@ -871,11 +871,11 @@ export default function TVDisplayHTM({
                     </div>
                     <div className={`flex-1 flex items-center justify-center hourly-timeline-content border-slate-600/50 border-2 border-t-0 ${colors.bgColor} ${colors.textColor} w-full h-full border border-white/20 shadow-lg`}
                       style={{ fontSize: "clamp(1.5rem,3vw,3.8rem)", lineHeight: 1.2 }}>
-                      {shouldDisplay && (
+                      {/* {shouldDisplay && ( */}
                         <div className={getFlashClass(`hourly-${field}-sanluong`, "font-black")}>
                           {formatNumber(sanluong)}
                         </div>
-                      )}
+                      {/* )} */}
                     </div>
                   </div>
                 );
