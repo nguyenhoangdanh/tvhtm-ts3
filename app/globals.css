@@ -332,6 +332,7 @@ html:has(.tv-container) {
 /* Preset TV 43" FHD: 1920x1080 FULLSCREEN (Xiaomi TV A 43" FHD)
    CRITICAL: Must be AFTER Preset 3 to override it!
    Viewport: 1920x1080 (fullscreen browser on Google TV)
+   REAL viewport: ~1920x900-1000 (browser UI reduces height)
    
    Layout budget (1080px total height):
    - Header: 90px (~8.3%)
@@ -339,7 +340,7 @@ html:has(.tv-container) {
    - Error+Timeline: 160px (~14.8%)
    - Gaps: ~55px (~5.1%)
 */
-@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 800px) {
   html:has(.tv-container) {
     --tv-scale-font: 1.28;  /* Balanced font for TV viewing (not too large) */
     --tv-scale-space: 0.72; /* Moderate spacing */
@@ -389,7 +390,7 @@ html:has(.tv-container) {
 }
 
 /* Override spacing for TV 43" FHD - MUST match TV preset media query */
-@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 800px) {
   .tv-container {
     --tv-gap: calc(0.25rem * var(--tv-scale-space));
     --tv-main-pad: calc(0.30rem * var(--tv-scale-space));
@@ -603,7 +604,7 @@ html:has(.tv-container) {
 }
 
 /* TV 43" FHD: Reduce internal grid gap to make cards more compact */
-@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 1000px) {
+@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 800px) {
   .tv-container .glass-card-group1 > div.grid,
   .tv-container .glass-card-group2 > div.grid {
     gap: calc(0.45rem * var(--tv-scale-space)) !important;
