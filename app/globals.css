@@ -449,23 +449,23 @@ html:has(.tv-container) {
 /* Increase fontSize for main content on TV 43" */
 .tv-large-screen .glass-card-group2 .text-white.font-black.leading-tight,
 .tv-large-screen .glass-card-group1 .text-white.font-black.leading-tight {
-  font-size: clamp(0.65rem, 1.3vw, 1.5rem) !important; /* Reduce to prevent wrapping */
+  font-size: clamp(0.85rem, 1.6vw, 1.9rem) !important; /* Tăng để tận dụng không gian */
   line-height: 1.1 !important;
-  margin-bottom: 0.1rem !important;
+  margin-bottom: 0.15rem !important;
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-group2,
 .tv-large-screen .glass-card-group1 .metric-card-group1 {
-  font-size: clamp(2.4rem, 4.0vw, 5.2rem) !important; /* Slightly reduce */
-  padding: 0.15rem 0.3rem !important; /* Reduce padding */
-  line-height: 1.15 !important;
+  font-size: clamp(2.8rem, 4.6vw, 6.0rem) !important; /* Tăng size cho metric values */
+  padding: 0.2rem 0.4rem !important;
+  line-height: 1.2 !important;
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-full-color,
 .tv-large-screen .glass-card-group1 .metric-card-full-color {
-  font-size: clamp(2.4rem, 4.0vw, 5.2rem) !important; /* Slightly reduce */
-  padding: 0.15rem 0.3rem !important; /* Reduce padding */
-  line-height: 1.15 !important;
+  font-size: clamp(2.8rem, 4.6vw, 6.0rem) !important; /* Tăng size cho percentage values */
+  padding: 0.2rem 0.4rem !important;
+  line-height: 1.2 !important;
 }
 
 /* ========== HARD OVERRIDES (component inline styles) ========== */
@@ -593,6 +593,95 @@ html:has(.tv-container) {
 .tv-container .glass-card-group2 > div.grid {
   gap: calc(0.70rem * var(--tv-scale-space)) !important;
   padding-bottom: calc(0.65rem * var(--tv-scale-space)) !important;
+}
+
+/* ========== FONT SIZE OPTIMIZATIONS FOR SMALL SCREENS (14", 15.6", 24") ========== */
+/* Laptops 14-15.6 inch (1366px-1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+  /* Increase label font sizes */
+  .tv-container .glass-card-group2 .text-white.font-black.leading-tight,
+  .tv-container .glass-card-group1 .text-white.font-black.leading-tight {
+    font-size: clamp(0.95rem, 1.8vw, 2.2rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Increase metric value font sizes */
+  .tv-container .glass-card-group2 .metric-card-group2,
+  .tv-container .glass-card-group1 .metric-card-group1 {
+    font-size: clamp(2.8rem, 4.8vw, 6.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Increase full-color metric cards */
+  .tv-container .glass-card-group2 .metric-card-full-color,
+  .tv-container .glass-card-group1 .metric-card-full-color {
+    font-size: clamp(2.8rem, 4.8vw, 6.2rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Increase secondary text (đạt lần 1, tái chế đạt, chờ sửa) */
+  .tv-container .glass-card-group1 .font-black.flex.items-center.justify-center {
+    font-size: clamp(1.5rem, 2.8vw, 3.6rem) !important;
+  }
+
+  /* Increase diff values below main metrics */
+  .tv-container .glass-card-group2 .font-black.flex.items-center.justify-center,
+  .tv-container .glass-card-group1 .font-black.flex.items-center.justify-center {
+    font-size: clamp(1.5rem, 2.8vw, 3.6rem) !important;
+  }
+}
+
+/* 24" monitors (1920px-2559px) */
+@media (min-width: 1920px) and (max-width: 2559px) and (max-height: 1440px) {
+  /* Increase label font sizes for 24" */
+  .tv-container:not(.tv-large-screen) .glass-card-group2 .text-white.font-black.leading-tight,
+  .tv-container:not(.tv-large-screen) .glass-card-group1 .text-white.font-black.leading-tight {
+    font-size: clamp(1.05rem, 2.0vw, 2.4rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Increase metric value font sizes for 24" */
+  .tv-container:not(.tv-large-screen) .glass-card-group2 .metric-card-group2,
+  .tv-container:not(.tv-large-screen) .glass-card-group1 .metric-card-group1 {
+    font-size: clamp(3.0rem, 5.0vw, 6.5rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Increase full-color metric cards for 24" */
+  .tv-container:not(.tv-large-screen) .glass-card-group2 .metric-card-full-color,
+  .tv-container:not(.tv-large-screen) .glass-card-group1 .metric-card-full-color {
+    font-size: clamp(3.0rem, 5.0vw, 6.5rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Increase secondary text for 24" */
+  .tv-container:not(.tv-large-screen) .glass-card-group1 .font-black.flex.items-center.justify-center {
+    font-size: clamp(1.6rem, 3.0vw, 3.8rem) !important;
+  }
+}
+
+/* Ultra-small screens 14" (1366px and below) */
+@media (max-width: 1365px) {
+  /* Compact but readable labels */
+  .tv-container .glass-card-group2 .text-white.font-black.leading-tight,
+  .tv-container .glass-card-group1 .text-white.font-black.leading-tight {
+    font-size: clamp(0.85rem, 1.6vw, 1.9rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Readable metric values */
+  .tv-container .glass-card-group2 .metric-card-group2,
+  .tv-container .glass-card-group1 .metric-card-group1 {
+    font-size: clamp(2.4rem, 4.2vw, 5.5rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Readable full-color cards */
+  .tv-container .glass-card-group2 .metric-card-full-color,
+  .tv-container .glass-card-group1 .metric-card-full-color {
+    font-size: clamp(2.4rem, 4.2vw, 5.5rem) !important;
+    line-height: 1.15 !important;
+  }
 }
 
 /* ========== ERROR SECTION LAYOUT ========== */
