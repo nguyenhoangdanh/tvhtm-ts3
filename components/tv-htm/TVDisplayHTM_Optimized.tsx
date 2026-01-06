@@ -757,9 +757,9 @@ export default function TVDisplayHTM({
             </div>
 
             <div className={`grid grid-cols-4 flex-1 ${hasErrors ? 'gap-1.5' : 'gap-3'}`}>
-              {/* MỤC TIÊU SL GIỞ */}
+              {/* MỤC TIÊU SL GIỜ */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>MỤC TIÊU SL GIỞ</div>
+              <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>MỤC TIÊU SL GIỜ </div>
                 <div className={getFlashClass('targetGio', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.targetGio)}
                 </div>
