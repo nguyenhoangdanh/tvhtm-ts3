@@ -535,6 +535,14 @@ export default function TVDisplayHTM({
     <div
       className={`h-screen w-screen text-white font-bold overflow-hidden tv-container grid relative ${isLargeScreen ? 'tv-large-screen' : ''}`}
     >
+      {/* DEBUG: Screen Size Info - TOP LEFT */}
+      <div className="absolute top-2 left-2 z-[999] bg-black/80 text-white p-2 rounded text-xs font-mono">
+        <div>Width: {typeof window !== 'undefined' ? window.innerWidth : 'N/A'}px</div>
+        <div>Height: {typeof window !== 'undefined' ? window.innerHeight : 'N/A'}px</div>
+        <div>Large: {isLargeScreen ? 'YES ✓' : 'NO ✗'}</div>
+        <div>Class: {isLargeScreen ? 'tv-large-screen' : 'default'}</div>
+      </div>
+      
       {/* Data Warning Overlay - Absolute positioned in center */}
       {getDataWarning && (
         <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
