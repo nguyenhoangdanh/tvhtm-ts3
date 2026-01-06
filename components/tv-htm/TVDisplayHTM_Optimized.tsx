@@ -48,7 +48,19 @@ export default function TVDisplayHTM({
 }: TVDisplayHTMProps) {
   const { minutes, hours } = useTime({})
   const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`
-
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+  
+  // Detect large screen (TV 43"+) for compact header - MUST be before any early returns
+  useEffect(() => {
+    const checkScreenSize = () => {
+      // Check if screen is 1920px or larger (TV 43" FHD+)
+      setIsLargeScreen(window.innerWidth >= 1920);
+    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+  
   const { data, loading, error, connected, refresh } = useProductionData({
     maChuyenLine,
     factory,
@@ -521,7 +533,7 @@ export default function TVDisplayHTM({
 
   return (
     <div
-      className="h-screen w-screen text-white font-bold overflow-hidden tv-container grid relative"
+      className={`h-screen w-screen text-white font-bold overflow-hidden tv-container grid relative ${isLargeScreen ? 'tv-large-screen' : ''}`}
     >
       {/* Data Warning Overlay - Absolute positioned in center */}
       {getDataWarning && (

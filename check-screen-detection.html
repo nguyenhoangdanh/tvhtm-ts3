@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Screen Detection Test</title>
+</head>
+<body>
+  <h1>Screen Size Detection Test</h1>
+  <div id="info" style="font-size: 24px; margin: 20px;"></div>
+  
+  <script>
+    function updateInfo() {
+      const info = document.getElementById('info');
+      const isLargeScreen = window.innerWidth >= 1920;
+      
+      info.innerHTML = `
+        <strong>Window Inner Width:</strong> ${window.innerWidth}px<br>
+        <strong>Window Inner Height:</strong> ${window.innerHeight}px<br>
+        <strong>Screen Width:</strong> ${screen.width}px<br>
+        <strong>Screen Height:</strong> ${screen.height}px<br>
+        <strong>Device Pixel Ratio:</strong> ${window.devicePixelRatio}<br>
+        <br>
+        <strong>Is Large Screen (>= 1920px):</strong> <span style="color: ${isLargeScreen ? 'green' : 'red'}; font-weight: bold;">${isLargeScreen ? 'YES ✓' : 'NO ✗'}</span><br>
+        <strong>Should apply .tv-large-screen:</strong> <span style="color: ${isLargeScreen ? 'green' : 'red'}; font-weight: bold;">${isLargeScreen ? 'YES' : 'NO'}</span>
+      `;
+    }
+    
+    updateInfo();
+    window.addEventListener('resize', updateInfo);
+  </script>
+</body>
+</html>

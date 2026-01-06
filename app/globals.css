@@ -331,27 +331,8 @@ html:has(.tv-container) {
 
 /* Preset TV 43" FHD: 1920x1080 FULLSCREEN (Xiaomi TV A 43" FHD)
    CRITICAL: Must be AFTER Preset 3 to override it!
-   Viewport: 1920x1080 (fullscreen browser on Google TV)
-   REAL viewport: ~1920x900-1000 (browser UI reduces height)
-   
-   Layout budget (1080px total height):
-   - Header: 90px (~8.3%)
-   - Production+QC: ~775px (~71.8%) ⭐ PRIORITY
-   - Error+Timeline: 160px (~14.8%)
-   - Gaps: ~55px (~5.1%)
+   NOW USING CLASS-BASED APPROACH INSTEAD OF MEDIA QUERY
 */
-@media (min-width: 1920px) and (max-width: 1920px) {
-  html:has(.tv-container) {
-    --tv-scale-font: 1.28;  /* Balanced font for TV viewing (not too large) */
-    --tv-scale-space: 0.72; /* Moderate spacing */
-    --tv-header-min: 60px;  /* Ultra-compact header ~5.5% viewport */
-    --tv-header-max: 68px;
-    --tv-error-max: 60px;   /* Ultra-compact Error */
-    --tv-timeline-max: 75px; /* Ultra-compact Timeline */
-    --tv-error-timeline-combined-max: 150px; /* Minimal combined ~14% */
-    font-size: calc(16px * var(--tv-scale-font)) !important; /* CRITICAL: Override base font-size */
-  }
-}
 
 /* Preset 4: 2K panels (2560x1440 / 27") */
 @media (min-width: 2560px) and (max-width: 3839px) {
@@ -389,102 +370,64 @@ html:has(.tv-container) {
   --tv-inner-gap: calc(0.55rem * var(--tv-scale-space));
 }
 
-/* Override spacing for TV 43" FHD - MUST match TV preset media query */
-@media (min-width: 1920px) and (max-width: 1920px) {
-  .tv-container {
-    --tv-gap: calc(0.25rem * var(--tv-scale-space));
-    --tv-main-pad: calc(0.30rem * var(--tv-scale-space));
-    --tv-card-pad: calc(0.70rem * var(--tv-scale-space));
-    --tv-card-pad-compact: calc(0.45rem * var(--tv-scale-space));
-    --tv-card-gap: calc(0.38rem * var(--tv-scale-space));
-  }
+/* Override spacing for TV 43" FHD - CLASS-BASED APPROACH */
+.tv-large-screen.tv-container {
+  --tv-gap: calc(0.20rem * var(--tv-scale-space));
+  --tv-main-pad: calc(0.25rem * var(--tv-scale-space));
+  --tv-card-pad: calc(0.60rem * var(--tv-scale-space));
+  --tv-card-pad-compact: calc(0.40rem * var(--tv-scale-space));
+  --tv-card-gap: calc(0.30rem * var(--tv-scale-space));
+  grid-template-rows: minmax(70px, 85px) 1fr !important;
+}
 
-  /* ==================== CRITICAL: HEADER ULTRA-COMPACT for TV 43" FHD (1920x1080) ==================== */
-  /* Target: Fit header within 68px max-height - EXTREME COMPRESSION REQUIRED */
-  
-  /* Header container: ZERO padding */
-  .tv-header {
-    padding: 0.1rem 0.3rem !important;
-    min-height: 60px !important;
-    max-height: 68px !important;
-    overflow: hidden !important;
-  }
+/* ==================== CRITICAL: HEADER ULTRA-COMPACT for TV 43" FHD ==================== */
+.tv-large-screen .tv-header {
+  padding: 0.15rem 0.4rem !important;
+  min-height: 70px !important;
+  max-height: 85px !important;
+  overflow: hidden !important;
+}
 
-  /* Header grid: ZERO gap */
-  .tv-header > div {
-    gap: 0.1rem !important;
-  }
+.tv-large-screen .tv-header > div {
+  gap: 0.2rem !important;
+}
 
-  /* Logo section: hide second logo, ultra-compact */
-  .tv-header > div > div:first-child {
-    gap: 0.05rem !important;
-  }
+.tv-large-screen .tv-header > div > div:first-child {
+  gap: 0.15rem !important;
+}
 
-  .tv-header > div > div:first-child > div:first-child {
-    gap: 0.1rem !important;
-  }
+.tv-large-screen .tv-header button,
+.tv-large-screen .tv-header button + div {
+  width: clamp(1.8rem, 3vw, 3.4rem) !important;
+  height: clamp(1.8rem, 3vw, 3.4rem) !important;
+}
 
-  /* Hide second logo to save space */
-  .tv-header > div > div:first-child > div:first-child > div:last-child {
-    display: none !important;
-  }
+.tv-large-screen .tv-header .font-black.leading-none {
+  font-size: clamp(1.4rem, 2.4vw, 2.6rem) !important;
+  line-height: 1.1 !important;
+}
 
-  /* Logo button: EXTREMELY small */
-  .tv-header button {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-    min-width: 2.5rem !important;
-    min-height: 2.5rem !important;
-  }
+.tv-large-screen .tv-header .flex.flex-col {
+  padding: 0 !important;
+  gap: 0.15rem !important;
+}
 
-  /* Time display: VERY small fontSize */
-  .tv-header .font-black.leading-none {
-    font-size: 1.4rem !important;
-    line-height: 1 !important;
-  }
+.tv-large-screen .tv-header .flex.flex-col > div:first-child {
+  font-size: clamp(0.7rem, 1.2vw, 1.4rem) !important;
+  margin-bottom: 0 !important;
+  line-height: 1 !important;
+}
 
-  /* Production metrics grid: ZERO gap */
-  .tv-header > div > div:last-child > div {
-    gap: 0.1rem !important;
-  }
+.tv-large-screen .tv-header .metric-card-group1,
+.tv-large-screen .tv-header .metric-card-violet {
+  padding: 0.2rem 0.4rem !important;
+  font-size: clamp(1.5rem, 2.5vw, 2.9rem) !important;
+  line-height: 1 !important;
+}
 
-  /* All metric columns: ZERO padding and gap */
-  .tv-header .flex.flex-col {
-    padding: 0 !important;
-    gap: 0 !important;
-  }
-
-  /* All labels in header: EXTREMELY small or hide */
-  .tv-header .flex.flex-col > div:first-child {
-    font-size: 0.55rem !important;
-    margin-bottom: 0 !important;
-    line-height: 1 !important;
-    padding: 0 !important;
-  }
-
-  /* All metric values in header: VERY small fontSize */
-  .tv-header .metric-card-group1,
-  .tv-header .metric-card-violet {
-    padding: 0.05rem 0.2rem !important;
-    font-size: 1.2rem !important;
-    line-height: 1 !important;
-  }
-
-  /* Factory/Line/Team: compact inline display */
-  .tv-header .metric-card-violet {
-    gap: 0.1rem !important;
-  }
-
-  /* Image container: hide to save space */
-  .tv-header > div > div:last-child > div > div:last-child {
-    display: none !important;
-  }
-
-  /* Diff badge: VERY small */
-  .tv-header .absolute.right-0 > div {
-    font-size: 0.7rem !important;
-    padding: 0.05rem 0.15rem !important;
-  }
+.tv-large-screen .tv-header .absolute.right-0 > div {
+  font-size: clamp(0.8rem, 1.4vw, 1.6rem) !important;
+  padding: 0.1rem 0.2rem !important;
 }
 
 /* ========== HARD OVERRIDES (component inline styles) ========== */
@@ -497,48 +440,6 @@ html:has(.tv-container) {
 /* Override component's inline gridTemplateRows - use hard-cap from preset */
 .tv-container {
   grid-template-rows: minmax(var(--tv-header-min, 120px), var(--tv-header-max)) 1fr !important;
-}
-
-/* ==================== TV 43" FHD SPECIFIC ADJUSTMENTS (Resolution-based) ==================== */
-/* Target ONLY 1920x1080 displays (TV 43" FHD) using resolution query */
-@media (min-resolution: 96dpi) and (min-width: 1920px) and (max-width: 1920px) {
-  .tv-container {
-    grid-template-rows: minmax(70px, 90px) 1fr !important;
-  }
-  
-  .tv-header {
-    max-height: 90px !important;
-    min-height: 70px !important;
-  }
-  
-  /* Scale down all header content proportionally */
-  .tv-header .font-black.leading-none {
-    font-size: clamp(1.4rem, 2.4vw, 2.6rem) !important;
-  }
-  
-  .tv-header button,
-  .tv-header button + div {
-    width: clamp(1.8rem, 3.2vw, 3.6rem) !important;
-    height: clamp(1.8rem, 3.2vw, 3.6rem) !important;
-  }
-  
-  .tv-header .flex.flex-col > div:first-child {
-    font-size: clamp(0.7rem, 1.3vw, 1.5rem) !important;
-  }
-  
-  .tv-header .metric-card-group1,
-  .tv-header .metric-card-violet {
-    font-size: clamp(1.5rem, 2.6vw, 3rem) !important;
-    padding: 0.15rem 0.4rem !important;
-  }
-  
-  .tv-header .grid {
-    gap: 0.3rem !important;
-  }
-  
-  .tv-header .flex.flex-col {
-    gap: 0.2rem !important;
-  }
 }
 
 /* Ensure header respects min and max height */
