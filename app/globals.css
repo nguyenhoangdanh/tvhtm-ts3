@@ -449,33 +449,27 @@ html:has(.tv-container) {
 /* Increase fontSize for main content on TV 43" */
 .tv-large-screen .glass-card-group2 .text-white.font-black.leading-tight,
 .tv-large-screen .glass-card-group1 .text-white.font-black.leading-tight {
-  font-size: clamp(1.2rem, 2.2vw, 2.6rem) !important; /* Tăng mạnh để tận dụng khoảng trống */
+  font-size: clamp(1.15rem, 2.2vw, 2.6rem) !important; /* Tăng mạnh để tận dụng không gian */
   line-height: 1.2 !important;
   margin-bottom: 0.25rem !important;
-  font-weight: 700 !important; /* Bold để đậm nét hơn */
+  font-weight: 900 !important; /* Extra bold cho labels */
+  letter-spacing: 0.02em !important; /* Tăng khoảng cách chữ */
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-group2,
 .tv-large-screen .glass-card-group1 .metric-card-group1 {
-  font-size: clamp(3.2rem, 5.2vw, 6.8rem) !important; /* Tăng mạnh metric values */
-  padding: 0.25rem 0.5rem !important;
-  line-height: 1.25 !important;
-  font-weight: 700 !important; /* Bold để đậm nét hơn */
+  font-size: clamp(2.8rem, 4.6vw, 6.0rem) !important; /* Tăng size cho metric values */
+  padding: 0.2rem 0.4rem !important;
+  line-height: 1.2 !important;
+  font-weight: 900 !important; /* Extra bold cho values */
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-full-color,
 .tv-large-screen .glass-card-group1 .metric-card-full-color {
-  font-size: clamp(3.2rem, 5.2vw, 6.8rem) !important; /* Tăng mạnh percentage values */
-  padding: 0.25rem 0.5rem !important;
-  line-height: 1.25 !important;
-  font-weight: 700 !important; /* Bold để đậm nét hơn */
-}
-
-/* Tăng font size cho secondary text (đạt lần 1, tái chế đạt, chờ sửa, diff values) */
-.tv-large-screen .glass-card-group1 .font-black.flex.items-center.justify-center,
-.tv-large-screen .glass-card-group2 .font-black.flex.items-center.justify-center {
-  font-size: clamp(1.6rem, 3.0vw, 3.8rem) !important;
-  font-weight: 700 !important; /* Bold thay vì black */
+  font-size: clamp(2.8rem, 4.6vw, 6.0rem) !important; /* Tăng size cho percentage values */
+  padding: 0.2rem 0.4rem !important;
+  line-height: 1.2 !important;
+  font-weight: 900 !important; /* Extra bold cho percentage values */
 }
 
 /* ========== HARD OVERRIDES (component inline styles) ========== */
