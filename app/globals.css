@@ -340,7 +340,7 @@ html:has(.tv-container) {
    - Error+Timeline: 160px (~14.8%)
    - Gaps: ~55px (~5.1%)
 */
-@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 800px) {
+@media (min-width: 1920px) and (max-width: 1920px) {
   html:has(.tv-container) {
     --tv-scale-font: 1.28;  /* Balanced font for TV viewing (not too large) */
     --tv-scale-space: 0.72; /* Moderate spacing */
@@ -390,7 +390,7 @@ html:has(.tv-container) {
 }
 
 /* Override spacing for TV 43" FHD - MUST match TV preset media query */
-@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 800px) {
+@media (min-width: 1920px) and (max-width: 1920px) {
   .tv-container {
     --tv-gap: calc(0.25rem * var(--tv-scale-space));
     --tv-main-pad: calc(0.30rem * var(--tv-scale-space));
@@ -604,7 +604,7 @@ html:has(.tv-container) {
 }
 
 /* TV 43" FHD: Reduce internal grid gap to make cards more compact */
-@media (min-width: 1920px) and (max-width: 2559px) and (min-height: 800px) {
+@media (min-width: 1920px) and (max-width: 1920px) {
   .tv-container .glass-card-group1 > div.grid,
   .tv-container .glass-card-group2 > div.grid {
     gap: calc(0.45rem * var(--tv-scale-space)) !important;
