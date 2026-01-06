@@ -375,21 +375,21 @@ html:has(.tv-container) {
   /* CRITICAL: Override CSS variables to prevent conflict with Preset 1 */
   --tv-scale-font: 0.85 !important;
   --tv-scale-space: 0.65 !important;
-  --tv-header-min: 90px !important;
-  --tv-header-max: 110px !important;
+  --tv-header-min: 72px !important;
+  --tv-header-max: 88px !important;
   --tv-gap: calc(0.20rem * var(--tv-scale-space));
   --tv-main-pad: calc(0.30rem * var(--tv-scale-space));
   --tv-card-pad: calc(0.65rem * var(--tv-scale-space));
   --tv-card-pad-compact: calc(0.45rem * var(--tv-scale-space));
   --tv-card-gap: calc(0.35rem * var(--tv-scale-space));
-  grid-template-rows: minmax(90px, 110px) 1fr !important;
+  grid-template-rows: minmax(72px, 88px) 1fr !important;
 }
 
 /* ==================== CRITICAL: HEADER OPTIMIZED for TV 43" FHD ==================== */
 .tv-large-screen .tv-header {
-  padding: 0.3rem 0.5rem !important;
-  min-height: 90px !important;
-  max-height: 110px !important;
+  padding: 0.25rem 0.4rem !important;
+  min-height: 72px !important;
+  max-height: 88px !important;
   overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
@@ -408,13 +408,13 @@ html:has(.tv-container) {
 
 .tv-large-screen .tv-header button,
 .tv-large-screen .tv-header button + div {
-  width: clamp(2.8rem, 4.8vw, 5.6rem) !important;
-  height: clamp(2.8rem, 4.8vw, 5.6rem) !important;
+  width: clamp(2.2rem, 3.8vw, 4.5rem) !important;
+  height: clamp(2.2rem, 3.8vw, 4.5rem) !important;
   flex-shrink: 0 !important;
 }
 
 .tv-large-screen .tv-header .font-black.leading-none {
-  font-size: clamp(2.2rem, 3.6vw, 4.4rem) !important;
+  font-size: clamp(1.8rem, 2.9vw, 3.5rem) !important;
   line-height: 1 !important;
   margin: 0 !important;
 }
@@ -427,7 +427,7 @@ html:has(.tv-container) {
 }
 
 .tv-large-screen .tv-header .flex.flex-col > div:first-child {
-  font-size: clamp(1.2rem, 2.0vw, 2.4rem) !important;
+  font-size: clamp(0.95rem, 1.6vw, 1.9rem) !important;
   margin-bottom: 0 !important;
   line-height: 1 !important;
   padding: 0 !important;
@@ -435,8 +435,8 @@ html:has(.tv-container) {
 
 .tv-large-screen .tv-header .metric-card-group1,
 .tv-large-screen .tv-header .metric-card-violet {
-  padding: 0.25rem 0.5rem !important;
-  font-size: clamp(2.4rem, 4.0vw, 4.8rem) !important;
+  padding: 0.2rem 0.4rem !important;
+  font-size: clamp(1.9rem, 3.2vw, 3.8rem) !important;
   line-height: 1 !important;
   min-height: 0 !important;
 }

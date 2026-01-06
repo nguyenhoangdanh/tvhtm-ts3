@@ -759,7 +759,7 @@ export default function TVDisplayHTM({
             <div className={`grid grid-cols-4 flex-1 ${hasErrors ? 'gap-2' : 'gap-3'}`}>
               {/* MỤC TIÊU SL GIỜ */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: hasErrors ? "clamp(0.9rem,2vw,2.4rem)" : "clamp(1rem,1.8vw,2.2rem)" }}>MỤC TIÊU SL GIỜ</div>
+                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: hasErrors ? "clamp(0.8rem,1.8vw,2.2rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>MỤC TIÊU SL GIỞ</div>
                 <div className={getFlashClass('targetGio', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.targetGio)}
                 </div>
@@ -770,7 +770,7 @@ export default function TVDisplayHTM({
 
               {/* PPH MỤC TIÊU */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: hasErrors ? "clamp(0.9rem,2vw,2.4rem)" : "clamp(1rem,1.8vw,2.2rem)" }}>PPH MỤC TIÊU</div>
+                <div className="text-white font-black leading-tight mb-1" style={{ fontSize: hasErrors ? "clamp(0.8rem,1.8vw,2.2rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>PPH MỤC TIÊU</div>
                 <div className={getFlashClass('pphKh', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatPercentage(displayData.pphKh, 2)}
                 </div>
