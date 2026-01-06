@@ -53,8 +53,16 @@ export default function TVDisplayHTM({
   // Detect large screen (TV 43"+) for compact header - MUST be before any early returns
   useEffect(() => {
     const checkScreenSize = () => {
-      // Check if screen is 1920px or larger (TV 43" FHD+)
-      setIsLargeScreen(window.innerWidth >= 1920);
+      // Use physical screen width OR viewport * DPR for accurate detection
+      const physicalWidth = window.screen?.width || window.innerWidth;
+      const viewportWidth = window.innerWidth;
+      const dpr = window.devicePixelRatio || 1;
+      const actualWidth = viewportWidth * dpr;
+      
+      // TV 43" FHD: physical=1920, viewport=961, DPR=2
+      // Use physical screen width as primary detection
+      const isTVScreen = physicalWidth >= 1920 || actualWidth >= 1920;
+      setIsLargeScreen(isTVScreen);
     };
     checkScreenSize();
     window.addEventListener('resize', checkScreenSize);
@@ -537,8 +545,10 @@ export default function TVDisplayHTM({
     >
       {/* DEBUG: Screen Size Info - TOP LEFT */}
       <div className="absolute top-2 left-2 z-[999] bg-black/80 text-white p-2 rounded text-xs font-mono">
-        <div>Width: {typeof window !== 'undefined' ? window.innerWidth : 'N/A'}px</div>
-        <div>Height: {typeof window !== 'undefined' ? window.innerHeight : 'N/A'}px</div>
+        <div>Viewport: {typeof window !== 'undefined' ? window.innerWidth : 'N/A'}px</div>
+        <div>Physical: {typeof window !== 'undefined' && window.screen ? window.screen.width : 'N/A'}px</div>
+        <div>DPR: {typeof window !== 'undefined' ? window.devicePixelRatio : 'N/A'}</div>
+        <div>Actual: {typeof window !== 'undefined' ? (window.innerWidth * (window.devicePixelRatio || 1)).toFixed(0) : 'N/A'}px</div>
         <div>Large: {isLargeScreen ? 'YES ✓' : 'NO ✗'}</div>
         <div>Class: {isLargeScreen ? 'tv-large-screen' : 'default'}</div>
       </div>
