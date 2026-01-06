@@ -414,8 +414,8 @@ html:has(.tv-container) {
 }
 
 .tv-large-screen .tv-header .font-black.leading-none {
-  font-size: clamp(1.8rem, 2.9vw, 3.5rem) !important;
-  line-height: 1 !important;
+  font-size: clamp(2.0rem, 3.2vw, 3.8rem) !important; /* Tăng font size cho time và factory info */
+  line-height: 1.05 !important;
   margin: 0 !important;
 }
 
@@ -427,17 +427,17 @@ html:has(.tv-container) {
 }
 
 .tv-large-screen .tv-header .flex.flex-col > div:first-child {
-  font-size: clamp(0.95rem, 1.6vw, 1.9rem) !important;
+  font-size: clamp(1.05rem, 1.8vw, 2.1rem) !important; /* Tăng font size cho header labels */
   margin-bottom: 0 !important;
-  line-height: 1 !important;
+  line-height: 1.05 !important;
   padding: 0 !important;
 }
 
 .tv-large-screen .tv-header .metric-card-group1,
 .tv-large-screen .tv-header .metric-card-violet {
-  padding: 0.4rem 0.7rem !important; /* Increase padding */
-  font-size: clamp(1.9rem, 3.2vw, 3.8rem) !important;
-  line-height: 1 !important;
+  padding: 0.5rem 0.85rem !important; /* Tăng padding cho header items */
+  font-size: clamp(2.1rem, 3.5vw, 4.2rem) !important; /* Tăng font size */
+  line-height: 1.1 !important;
   min-height: 0 !important;
 }
 
@@ -449,9 +449,9 @@ html:has(.tv-container) {
 /* Increase fontSize for main content on TV 43" */
 .tv-large-screen .glass-card-group2 .text-white.font-black.leading-tight,
 .tv-large-screen .glass-card-group1 .text-white.font-black.leading-tight {
-  font-size: clamp(0.85rem, 1.6vw, 1.9rem) !important; /* Tăng để tận dụng không gian */
-  line-height: 1.1 !important;
-  margin-bottom: 0.15rem !important;
+  font-size: clamp(1.0rem, 1.9vw, 2.2rem) !important; /* Tăng thêm để hiển thị rõ hơn */
+  line-height: 1.15 !important;
+  margin-bottom: 0.2rem !important;
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-group2,

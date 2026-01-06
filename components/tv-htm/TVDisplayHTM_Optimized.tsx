@@ -796,15 +796,15 @@ export default function TVDisplayHTM({
 
               {/* %HT PPH */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>%HT PPH</div>
+                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.75rem,1.6vw,2.0rem)" : "clamp(0.95rem,1.8vw,2.2rem)" }}>%HT PPH</div>
                 <div className={(() => {
                   const colorScheme = getPercentageColor(displayData.phanTramHtPph);
                   return getFlashClass('phanTramHtPph', `metric-card-full-color font-black ${colorScheme.bgColor} ${colorScheme.textColor} ${colorScheme.borderColor} border ${colorScheme.shadow} rounded-lg`);
                 })()}
-                  style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
+                  style={{ fontSize: hasErrors ? "clamp(2.2rem,3.8vw,4.8rem)" : "clamp(2.8rem,4.8vw,6.2rem)", lineHeight: 1.2 }}>
                   {formatPercentage(displayData.phanTramHtPph, 0)}%
                 </div>
-                <div style={{ fontSize: hasErrors ? "clamp(1.2rem,2.4vw,3.4rem)" : "clamp(1.4rem,2.6vw,3.6rem)" }}>
+                <div style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,3.5rem)" : "clamp(1.5rem,2.8vw,3.6rem)" }}>
                   <div className={getFlashClass('diffPhanTramHtPph100', `flex flex-row items-center justify-center font-black ${displayData.diffPhanTramHtPph100 > 0 ? 'text-green-400' : displayData.diffPhanTramHtPph100 < 0 ? 'text-red-500' : ''}`)}>
                     {displayData.diffPhanTramHtPph100 > 0 && <UpArrowIcon />}
                     {displayData.diffPhanTramHtPph100 < 0 && <DownArrowIcon />}
@@ -820,26 +820,26 @@ export default function TVDisplayHTM({
             <div className={`grid grid-cols-2 flex-1 border-b border-gray-400/30 ${hasErrors ? 'gap-1.5 pb-2' : 'gap-3 pb-5'}`}>
               {/* LK QC KIỂM */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>LK QC KIỂM</div>
-                <div className={getFlashClass('tongKiem', "metric-card-group1 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
+                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.75rem,1.6vw,2.0rem)" : "clamp(0.95rem,1.8vw,2.2rem)" }}>LK QC KIỂM</div>
+                <div className={getFlashClass('tongKiem', "metric-card-group1 font-black")} style={{ fontSize: hasErrors ? "clamp(2.2rem,3.8vw,4.8rem)" : "clamp(2.8rem,4.8vw,6.2rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.tongKiem)}
                 </div>
-                <div className={`font-black flex items-center justify-center ${currentDatLan1 > 0 ? 'text-green-400' : currentDatLan1 < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: hasErrors ? "clamp(1.2rem,2.2vw,3.2rem)" : "clamp(1.4rem,2.4vw,3.4rem)" }}>
+                <div className={`font-black flex items-center justify-center ${currentDatLan1 > 0 ? 'text-green-400' : currentDatLan1 < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: hasErrors ? "clamp(1.3rem,2.4vw,3.4rem)" : "clamp(1.5rem,2.6vw,3.6rem)" }}>
                   {formatNumber(currentDatLan1)} đạt lần 1
                 </div>
               </div>
 
               {/* LK TÚI ĐẠT */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>LK TÚI ĐẠT</div>
-                <div className={getFlashClass('tongDat', "metric-card-group1 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
+                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.75rem,1.6vw,2.0rem)" : "clamp(0.95rem,1.8vw,2.2rem)" }}>LK TÚI ĐẠT</div>
+                <div className={getFlashClass('tongDat', "metric-card-group1 font-black")} style={{ fontSize: hasErrors ? "clamp(2.2rem,3.8vw,4.8rem)" : "clamp(2.8rem,4.8vw,6.2rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.tongDat)}
                 </div>
                 {/* <div className={`font-black flex items-center justify-center ${taichedat > 0 ? 'text-green-400' : taichedat < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: "clamp(1rem,1.9vw,2.8rem)" }}>
                   {formatNumber(taichedat)} tái chế đạt
                 </div> */}
                 {taichedat > 0 && (
-                  <div className={`font-black flex items-center justify-center ${taichedat > 0 ? 'text-green-400' : taichedat < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: hasErrors ? "clamp(1.2rem,2.2vw,3.2rem)" : "clamp(1.4rem,2.4vw,3.4rem)" }}>
+                  <div className={`font-black flex items-center justify-center ${taichedat > 0 ? 'text-green-400' : taichedat < 0 ? 'text-red-500' : 'text-white'}`} style={{ fontSize: hasErrors ? "clamp(1.3rem,2.4vw,3.4rem)" : "clamp(1.5rem,2.6vw,3.6rem)" }}>
                     {formatNumber(taichedat)} tái chế đạt
                   </div>
                 )}
@@ -849,12 +849,12 @@ export default function TVDisplayHTM({
             <div className={`grid grid-cols-2 flex-1 ${hasErrors ? 'gap-1.5' : 'gap-3'}`}>
               {/* LK TÚI LỖI */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>LK TÚI LỖI</div>
-                <div className={getFlashClass('tongLoi', "metric-card-group1 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
+                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.75rem,1.6vw,2.0rem)" : "clamp(0.95rem,1.8vw,2.2rem)" }}>LK TÚI LỖI</div>
+                <div className={getFlashClass('tongLoi', "metric-card-group1 font-black")} style={{ fontSize: hasErrors ? "clamp(2.2rem,3.8vw,4.8rem)" : "clamp(2.8rem,4.8vw,6.2rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.tongLoi)}
                 </div>
                 {tuiChosua > 0 && taichedat > 0 && (
-                  <div className="font-black flex items-center justify-center text-red-500" style={{ fontSize: hasErrors ? "clamp(1.2rem,2.2vw,3.2rem)" : "clamp(1.4rem,2.4vw,3.4rem)" }}>
+                  <div className="font-black flex items-center justify-center text-red-500" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.4vw,3.4rem)" : "clamp(1.5rem,2.6vw,3.6rem)" }}>
                     <DownArrowIcon />
                     {formatNumber(tuiChosua)} chờ sửa
                   </div>
@@ -863,15 +863,15 @@ export default function TVDisplayHTM({
 
               {/* RFT */}
               <div className="text-center">
-                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.7rem,1.5vw,1.8rem)" : "clamp(0.8rem,1.5vw,1.8rem)" }}>RFT</div>
+                <div className="text-white font-black leading-tight mb-0.5" style={{ fontSize: hasErrors ? "clamp(0.75rem,1.6vw,2.0rem)" : "clamp(0.95rem,1.8vw,2.2rem)" }}>RFT</div>
                 <div className={(() => {
                   const colorScheme = getPercentageColorForRFT(displayData.rft);
                   return getFlashClass('rft', `metric-card-full-color font-black ${colorScheme.bgColor} ${colorScheme.textColor} ${colorScheme.borderColor} border ${colorScheme.shadow} rounded-lg`);
                 })()}
-                  style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
+                  style={{ fontSize: hasErrors ? "clamp(2.2rem,3.8vw,4.8rem)" : "clamp(2.8rem,4.8vw,6.2rem)", lineHeight: 1.2 }}>
                   {formatPercentage(displayData.rft, 0)}%
                 </div>
-                <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: hasErrors ? "clamp(1.2rem,2.4vw,3.4rem)" : "clamp(1.4rem,2.6vw,3.6rem)" }}>
+                <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,3.5rem)" : "clamp(1.5rem,2.8vw,3.6rem)" }}>
                   <div className={getFlashClass('diffRftTarget', `flex flex-row items-center justify-center ${displayData.diffRftTarget > 0 ? 'text-green-400' : displayData.diffRftTarget < 0 ? 'text-red-500' : ''}`)}>
                     {displayData.diffRftTarget > 0 && <UpArrowIcon />}
                     {displayData.diffRftTarget < 0 && <DownArrowIcon />}
