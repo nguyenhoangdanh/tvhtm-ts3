@@ -435,7 +435,7 @@ html:has(.tv-container) {
 
 .tv-large-screen .tv-header .metric-card-group1,
 .tv-large-screen .tv-header .metric-card-violet {
-  padding: 0.2rem 0.4rem !important;
+  padding: 0.4rem 0.7rem !important; /* Increase padding */
   font-size: clamp(1.9rem, 3.2vw, 3.8rem) !important;
   line-height: 1 !important;
   min-height: 0 !important;
@@ -449,21 +449,23 @@ html:has(.tv-container) {
 /* Increase fontSize for main content on TV 43" */
 .tv-large-screen .glass-card-group2 .text-white.font-black.leading-tight,
 .tv-large-screen .glass-card-group1 .text-white.font-black.leading-tight {
-  font-size: clamp(1.1rem, 2.2vw, 2.8rem) !important;
+  font-size: clamp(0.65rem, 1.3vw, 1.5rem) !important; /* Reduce to prevent wrapping */
+  line-height: 1.1 !important;
+  margin-bottom: 0.1rem !important;
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-group2,
 .tv-large-screen .glass-card-group1 .metric-card-group1 {
-  font-size: clamp(2.6rem, 4.4vw, 5.8rem) !important;
-  padding: 0.2rem 0.4rem !important;
-  line-height: 1.2 !important;
+  font-size: clamp(2.4rem, 4.0vw, 5.2rem) !important; /* Slightly reduce */
+  padding: 0.15rem 0.3rem !important; /* Reduce padding */
+  line-height: 1.15 !important;
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-full-color,
 .tv-large-screen .glass-card-group1 .metric-card-full-color {
-  font-size: clamp(2.6rem, 4.4vw, 5.8rem) !important;
-  padding: 0.2rem 0.4rem !important;
-  line-height: 1.2 !important;
+  font-size: clamp(2.4rem, 4.0vw, 5.2rem) !important; /* Slightly reduce */
+  padding: 0.15rem 0.3rem !important; /* Reduce padding */
+  line-height: 1.15 !important;
 }
 
 /* ========== HARD OVERRIDES (component inline styles) ========== */
@@ -519,6 +521,17 @@ html:has(.tv-container) {
 .tv-container:has(.error-qc-container) .glass-card-group2,
 .tv-container:has(.error-qc-container) .glass-card-group3 {
   padding: var(--tv-card-pad-compact) !important;
+}
+
+/* Reduce internal grid gap for TV 43" to maximize space */
+.tv-large-screen .glass-card-group1 > div.grid,
+.tv-large-screen .glass-card-group2 > div.grid {
+  gap: 0.3rem !important; /* Reduce from default gap-3 (0.75rem) */
+}
+
+/* Reduce main grid gap between Production and QC cards */
+.tv-large-screen .tv-main > .grid {
+  gap: 0.4rem !important;
 }
 
 /* ========== ERROR ANALYSIS HEIGHT CAP (CRITICAL) ========== */
