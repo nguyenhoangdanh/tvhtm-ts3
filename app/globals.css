@@ -398,89 +398,91 @@ html:has(.tv-container) {
     --tv-card-gap: calc(0.38rem * var(--tv-scale-space));
   }
 
-  /* ==================== CRITICAL: HEADER ULTRA-COMPACT for TV 43" FHD ==================== */
-  /* Target: Fit header within 68px max-height by reducing all padding, gaps, and margins */
+  /* ==================== CRITICAL: HEADER ULTRA-COMPACT for TV 43" FHD (1920x1080) ==================== */
+  /* Target: Fit header within 68px max-height - EXTREME COMPRESSION REQUIRED */
   
-  /* Header container: minimal padding */
+  /* Header container: ZERO padding */
   .tv-header {
-    padding: 0.2rem 0.4rem !important;
+    padding: 0.1rem 0.3rem !important;
+    min-height: 60px !important;
+    max-height: 68px !important;
+    overflow: hidden !important;
   }
 
-  /* Header grid: minimal gap between logo section and metrics */
+  /* Header grid: ZERO gap */
   .tv-header > div {
-    gap: 0.2rem !important;
-  }
-
-  /* Logo section: ultra-compact */
-  .tv-header > div > div:first-child {
-    gap: 0.1rem !important; /* Minimal gap between logo buttons and time */
-  }
-
-  .tv-header > div > div:first-child > div:first-child {
-    gap: 0.2rem !important; /* Minimal gap between two logo buttons */
-  }
-
-  /* Logo buttons: smaller size */
-  .tv-header button,
-  .tv-header button + div {
-    width: clamp(1.6rem, 2.8vw, 3.2rem) !important;
-    height: clamp(1.6rem, 2.8vw, 3.2rem) !important;
-  }
-
-  /* Time display: smaller fontSize */
-  .tv-header .font-black.leading-none {
-    font-size: clamp(1.2rem, 2.2vw, 2.4rem) !important;
-  }
-
-  /* Production metrics grid: minimal gap */
-  .tv-header > div > div:last-child > div {
-    gap: 0.15rem !important;
-  }
-
-  /* All metric columns: remove padding, minimal gap */
-  .tv-header .flex.flex-col {
-    padding: 0 !important;
     gap: 0.1rem !important;
   }
 
-  /* All labels in header: smaller fontSize, no margin */
-  .tv-header .flex.flex-col > div:first-child {
-    font-size: clamp(0.6rem, 1.1vw, 1.2rem) !important;
-    margin-bottom: 0 !important;
+  /* Logo section: hide second logo, ultra-compact */
+  .tv-header > div > div:first-child {
+    gap: 0.05rem !important;
+  }
+
+  .tv-header > div > div:first-child > div:first-child {
+    gap: 0.1rem !important;
+  }
+
+  /* Hide second logo to save space */
+  .tv-header > div > div:first-child > div:first-child > div:last-child {
+    display: none !important;
+  }
+
+  /* Logo button: EXTREMELY small */
+  .tv-header button {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    min-width: 2.5rem !important;
+    min-height: 2.5rem !important;
+  }
+
+  /* Time display: VERY small fontSize */
+  .tv-header .font-black.leading-none {
+    font-size: 1.4rem !important;
     line-height: 1 !important;
   }
 
-  /* All metric values in header: smaller fontSize */
+  /* Production metrics grid: ZERO gap */
+  .tv-header > div > div:last-child > div {
+    gap: 0.1rem !important;
+  }
+
+  /* All metric columns: ZERO padding and gap */
+  .tv-header .flex.flex-col {
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  /* All labels in header: EXTREMELY small or hide */
+  .tv-header .flex.flex-col > div:first-child {
+    font-size: 0.55rem !important;
+    margin-bottom: 0 !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+  }
+
+  /* All metric values in header: VERY small fontSize */
   .tv-header .metric-card-group1,
   .tv-header .metric-card-violet {
-    padding: 0.1rem 0.3rem !important;
-    font-size: clamp(1.4rem, 2.4vw, 2.8rem) !important;
+    padding: 0.05rem 0.2rem !important;
+    font-size: 1.2rem !important;
+    line-height: 1 !important;
   }
 
-  /* TGLV value: smaller */
-  .tv-header .metric-card-group1 {
-    font-size: clamp(1.4rem, 2.4vw, 2.8rem) !important;
+  /* Factory/Line/Team: compact inline display */
+  .tv-header .metric-card-violet {
+    gap: 0.1rem !important;
   }
 
-  /* Factory/Line/Team container: smaller fontSize */
-  .tv-header .metric-card-violet.py-1.px-2 {
-    padding: 0.1rem 0.4rem !important;
-    font-size: clamp(1.4rem, 2.4vw, 2.8rem) !important;
+  /* Image container: hide to save space */
+  .tv-header > div > div:last-child > div > div:last-child {
+    display: none !important;
   }
 
-  /* Image container: minimal padding */
-  .tv-header .flex.flex-col.justify-end {
-    padding-bottom: 0.1rem !important;
-  }
-
-  .tv-header .metric-card-violet.p-1 {
-    padding: 0.1rem !important;
-  }
-
-  /* Diff badge in Có Mặt: smaller */
+  /* Diff badge: VERY small */
   .tv-header .absolute.right-0 > div {
-    font-size: clamp(0.8rem, 1.4vw, 1.6rem) !important;
-    padding: 0.1rem 0.2rem !important;
+    font-size: 0.7rem !important;
+    padding: 0.05rem 0.15rem !important;
   }
 }
 
