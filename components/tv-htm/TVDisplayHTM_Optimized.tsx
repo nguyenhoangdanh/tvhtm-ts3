@@ -55,12 +55,22 @@ export default function TVDisplayHTM({
     const checkScreenSize = () => {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
+      const aspectRatio = viewportWidth / viewportHeight;
       
-      // TV 43" FHD with Google TV browser: viewport ~960x540 (browser zoomed)
-      // 15.6" laptop: ~1366x768 or 1920x1080
-      // 24" monitor: ~1920x1080 or 2560x1440
-      // Detect TV by viewport range: 900-1100px width (unique to TV 43" with browser zoom)
-      const isTVScreen = viewportWidth >= 900 && viewportWidth <= 1100;
+      // TV 43" FHD with Google TV browser: viewport ~960x540 (aspect ~1.78, 16:9)
+      // 15.6" laptop: ~1366x768 (aspect ~1.78) or 1920x1080 (aspect ~1.78)
+      // 24" monitor: ~1920x1080 (aspect ~1.78) or 2560x1440 (aspect ~1.78)
+      // 
+      // STRICT DETECTION: TV 43" has BOTH narrow viewport (900-1100px) AND low height (500-600px)
+      // This combination is unique to TV with browser zoom, won't match normal monitors
+      const isTVScreen = 
+        viewportWidth >= 900 && 
+        viewportWidth <= 1100 && 
+        viewportHeight >= 480 && 
+        viewportHeight <= 620 &&
+        aspectRatio >= 1.5 && 
+        aspectRatio <= 2.0;
+        
       setIsLargeScreen(isTVScreen);
     };
     checkScreenSize();

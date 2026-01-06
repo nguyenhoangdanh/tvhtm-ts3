@@ -562,23 +562,6 @@ html:has(.tv-container) {
   padding-bottom: calc(0.65rem * var(--tv-scale-space)) !important;
 }
 
-/* TV 43" FHD: Reduce internal grid gap to make cards more compact */
-@media (min-width: 1920px) and (max-width: 1920px) {
-  .tv-container .glass-card-group1 > div.grid,
-  .tv-container .glass-card-group2 > div.grid {
-    gap: calc(0.45rem * var(--tv-scale-space)) !important;
-    padding-bottom: calc(0.42rem * var(--tv-scale-space)) !important;
-  }
-  
-  /* Main content font overrides - CRITICAL FOR TV 43" */
-  /* Production & QC big numbers: ALL numbers in metric cards */
-  .tv-main .metric-card-group1,
-  .tv-main .metric-card-group2 {
-    font-size: clamp(1.3rem, 2.6vw, 3.2rem) !important;
-    line-height: 1.1 !important;
-  }
-}
-
 /* ========== ERROR SECTION LAYOUT ========== */
 .tv-container .error-qc-container {
   display: flex;
@@ -782,6 +765,10 @@ html, body {
 
   
   border-radius: 12px;
+  padding: 0.2rem 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   color: #000;
