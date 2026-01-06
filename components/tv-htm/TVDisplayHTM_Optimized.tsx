@@ -588,7 +588,7 @@ export default function TVDisplayHTM({
 
               {/* Factory/Line/Team */}
               <div className="w-full h-full flex flex-col justify-between items-center py-1 px-1">
-                <div className="text-white font-black mb-0 text-transparent" style={{ fontSize: "clamp(0.9rem,1.6vw,1.8rem)" }}>INFO</div>
+                <div className="font-black mb-0 text-transparent" style={{ fontSize: "clamp(0.9rem,1.6vw,1.8rem)" }}>INFO</div>
                 <div className="flex items-center justify-between gap-1 metric-card-violet py-1 px-2 w-full rounded" style={{ fontSize: "clamp(1.8rem,3vw,3.5rem)" }}>
                   <div className={getFlashClass('nhaMay', "text-white font-black")}>{displayData.nhaMay}</div>
                   <div className={getFlashClass('line', "text-white font-black")}>{displayData.line}</div>
@@ -676,6 +676,9 @@ export default function TVDisplayHTM({
                 <div className={getFlashClass('targetNgay', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.targetNgay)}
                 </div>
+                <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: hasErrors ? "clamp(1.2rem,2.4vw,3.4rem)" : "clamp(1.4rem,2.6vw,3.6rem)", visibility: 'hidden' }}>
+                  <div>PLACEHOLDER</div>
+                </div>
               </div>
 
               {/* LK K.HOẠCH */}
@@ -683,6 +686,9 @@ export default function TVDisplayHTM({
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: hasErrors ? "clamp(0.9rem,2vw,2.4rem)" : "clamp(1rem,1.8vw,2.2rem)" }}>LK K.HOẠCH</div>
                 <div className={getFlashClass('lkkh', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.lkkh)}
+                </div>
+                <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: hasErrors ? "clamp(1.2rem,2.4vw,3.4rem)" : "clamp(1.4rem,2.6vw,3.6rem)", visibility: 'hidden' }}>
+                  <div>PLACEHOLDER</div>
                 </div>
               </div>
 
@@ -728,6 +734,9 @@ export default function TVDisplayHTM({
                 <div className={getFlashClass('targetGio', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatNumber(displayData.targetGio)}
                 </div>
+                <div style={{ fontSize: hasErrors ? "clamp(1.2rem,2.4vw,3.4rem)" : "clamp(1.4rem,2.6vw,3.6rem)", visibility: 'hidden' }}>
+                  <div>PLACEHOLDER</div>
+                </div>
               </div>
 
               {/* PPH MỤC TIÊU */}
@@ -735,6 +744,9 @@ export default function TVDisplayHTM({
                 <div className="text-white font-black leading-tight mb-1" style={{ fontSize: hasErrors ? "clamp(0.9rem,2vw,2.4rem)" : "clamp(1rem,1.8vw,2.2rem)" }}>PPH MỤC TIÊU</div>
                 <div className={getFlashClass('pphKh', "metric-card-group2 font-black")} style={{ fontSize: hasErrors ? "clamp(2rem,3.6vw,4.5rem)" : "clamp(2.4rem,4.2vw,5.5rem)", lineHeight: 1.2 }}>
                   {formatPercentage(displayData.pphKh, 2)}
+                </div>
+                <div style={{ fontSize: hasErrors ? "clamp(1.2rem,2.4vw,3.4rem)" : "clamp(1.4rem,2.6vw,3.6rem)", visibility: 'hidden' }}>
+                  <div>PLACEHOLDER</div>
                 </div>
               </div>
 
