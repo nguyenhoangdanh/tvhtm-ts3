@@ -457,14 +457,14 @@ html:has(.tv-container) {
 
 .tv-large-screen .glass-card-group2 .metric-card-group2,
 .tv-large-screen .glass-card-group1 .metric-card-group1 {
-  font-size: clamp(2.5rem, 4.5vw, 3.5rem) !important; /* Giảm: 2.5rem-3.5rem cho metric values */
+  font-size: clamp(2.7rem, 4.5vw, 3.7rem) !important; /* Tăng: 2.7rem-3.7rem cho metric values */
   line-height: 1.15 !important;
   font-weight: 900 !important;
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-full-color,
 .tv-large-screen .glass-card-group1 .metric-card-full-color {
-  font-size: clamp(2.5rem, 4.5vw, 3.5rem) !important; /* Giảm: 2.5rem-3.5rem cho percentage values */
+  font-size: clamp(2.7rem, 4.5vw, 3.7rem) !important; /* Tăng: 2.7rem-3.7rem cho percentage values */
   line-height: 1.15 !important;
   font-weight: 900 !important;
 }

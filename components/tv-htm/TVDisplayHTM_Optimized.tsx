@@ -961,11 +961,13 @@ export default function TVDisplayHTM({
                     </div>
                     <div className={`flex-1 flex items-center justify-center hourly-timeline-content border-slate-600/50 border-2 border-t-0 ${colors.bgColor} ${colors.textColor} w-full h-full border border-white/20 shadow-lg`}
                       style={{ fontSize: "clamp(1.5rem,3vw,3.8rem)", lineHeight: 1.2 }}>
-                      {/* {shouldShowValue && ( */}
+                      {shouldShowValue ? (
                         <div className={getFlashClass(`hourly-${field}-sanluong`, "font-black")}>
                           {formatNumber(sanluong)}
                         </div>
-                      {/* )} */}
+                      ) : (
+                        <div className="font-black">&nbsp;</div>
+                      )}
                     </div>
                   </div>
                 );
