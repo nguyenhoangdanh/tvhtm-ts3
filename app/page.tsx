@@ -143,18 +143,13 @@ export default function HomePage() {
   const codeToRouteMapping: Record<string, { factory: string; index: number }> = {
     // TS1
     'KVHB07M01': { factory: 'ts1', index: 0 },
-    'KVHB07M02': { factory: 'ts1', index: 1 },
-    'KVHB07M03': { factory: 'ts1', index: 2 },
-    'KVHB07M04': { factory: 'ts1', index: 3 },
-    'KVHB07M05': { factory: 'ts1', index: 5 },
-    'KVHB07M06': { factory: 'ts1', index: 5 },
-    'KVHB07M07': { factory: 'ts1', index: 6 },
-    'KVHB07M08': { factory: 'ts1', index: 6 },
-    'KVHB07M09': { factory: 'ts1', index: 7 },
-    'KVHB07M10': { factory: 'ts1', index: 8 },
-    'KVHB07M13': { factory: 'ts1', index: 9 },
-    'KVHB07M14': { factory: 'ts1', index: 10 },
-    'KVHB07M39': { factory: 'ts1', index: 4 },
+    'KVHB07M03': { factory: 'ts1', index: 1 },
+    'KVHB07M05': { factory: 'ts1', index: 2 },
+    'KVHB07M07': { factory: 'ts1', index: 3 },
+    'KVHB07M09': { factory: 'ts1', index: 4 },
+    'KVHB07M10': { factory: 'ts1', index: 5 },
+    'KVHB07M13': { factory: 'ts1', index: 6 },
+    'KVHB07M14': { factory: 'ts1', index: 7 },
     // TS2
     'KVHB07M17': { factory: 'ts2', index: 0 },
     'KVHB07M18': { factory: 'ts2', index: 1 },
@@ -167,7 +162,6 @@ export default function HomePage() {
     // TS3
     'KVHB07M25': { factory: 'ts3', index: 0 },
     'KVHB07M26': { factory: 'ts3', index: 1 },
-    'KVHB07M27': { factory: 'ts3', index: 0 },
     'KVHB07M28': { factory: 'ts3', index: 6 },
     'KVHB07M29': { factory: 'ts3', index: 7 },
     'KVHB07M30': { factory: 'ts3', index: 8 },
@@ -175,9 +169,7 @@ export default function HomePage() {
     'KVHB07M32': { factory: 'ts3', index: 2 },
     'KVHB07M33': { factory: 'ts3', index: 3 },
     'KVHB07M34': { factory: 'ts3', index: 4 },
-    'KVHB07M35': { factory: 'ts3', index: 0 },
     'KVHB07M36': { factory: 'ts3', index: 0 },
-    'KVHB07M37': { factory: 'ts3', index: 5 },
     'KVHB07M38': { factory: 'ts3', index: 10 },
   };
 
