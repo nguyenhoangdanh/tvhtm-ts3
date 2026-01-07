@@ -478,7 +478,8 @@ html:has(.tv-container) {
 
 /* Factory/Line/Team header - reduce font for TV 43" to prevent overflow with long team names */
 .tv-large-screen .metric-card-violet.flex.items-center .font-black {
-  font-size: clamp(1.8rem, 2.7vw, 3.1rem) !important; /* Tăng thêm 0.3rem: 2.8rem → 3.1rem */
+  /* font-size: clamp(1.8rem, 2.7vw, 3.1rem) !important; /* Tăng thêm 0.3rem: 2.8rem → 3.1rem */
+  font-size: clamp(2rem, 2.9vw, 3.3rem) !important; 
 }
 
 /* ========== HARD OVERRIDES (component inline styles) ========== */
