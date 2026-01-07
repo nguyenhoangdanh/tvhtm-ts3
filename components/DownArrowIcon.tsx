@@ -7,7 +7,7 @@ const DownArrowIcon: React.FC = () => (
     viewBox="0 0 48 48"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-12 h-12"
+    className="w-5 h-5"
   >
     <defs>
       <filter id="shadow">
