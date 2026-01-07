@@ -535,6 +535,15 @@ html:has(.tv-container) {
 .tv-large-screen .glass-card-group1 > div.grid,
 .tv-large-screen .glass-card-group2 > div.grid {
   gap: 0.3rem !important; /* Reduce from default gap-3 (0.75rem) */
+  align-items: stretch !important; /* Ensure all cards stretch to same height */
+}
+
+/* Ensure all card containers stretch to full height */
+.tv-large-screen .glass-card-group1 > div.grid > div,
+.tv-large-screen .glass-card-group2 > div.grid > div {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 /* Reduce main grid gap between Production and QC cards */
