@@ -544,6 +544,7 @@ html:has(.tv-container) {
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
+  justify-content: space-between !important; /* Ensure content is distributed evenly */
 }
 
 /* Reduce main grid gap between Production and QC cards */
