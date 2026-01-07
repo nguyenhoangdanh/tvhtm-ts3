@@ -449,7 +449,7 @@ html:has(.tv-container) {
 /* Increase fontSize for main content on TV 43" */
 .tv-large-screen .glass-card-group2 .text-white.font-black.leading-tight,
 .tv-large-screen .glass-card-group1 .text-white.font-black.leading-tight {
-  font-size: clamp(3.0rem, 5.5vw, 6.0rem) !important; /* TĂNG: 3.0rem-6.0rem để cân đối layout TV 43" */
+  font-size: clamp(2.6rem, 4.2vw, 3.2rem) !important; /* Vừa phải: 2.6rem-3.2rem cho labels */
   line-height: 1.15 !important;
   margin-bottom: 0.25rem !important;
   font-weight: 900 !important; /* Extra bold cho labels */
@@ -458,18 +458,25 @@ html:has(.tv-container) {
 
 .tv-large-screen .glass-card-group2 .metric-card-group2,
 .tv-large-screen .glass-card-group1 .metric-card-group1 {
-  font-size: clamp(4.5rem, 7.5vw, 8.5rem) !important; /* TĂNG: 4.5rem-8.5rem cho metric values */
-  padding: 0.15rem 0.35rem !important;
+  font-size: clamp(4.0rem, 6.0vw, 5.0rem) !important; /* Vừa phải: 4.0rem-5.0rem cho metric values */
+  padding: 0.2rem 0.4rem !important;
   line-height: 1.15 !important;
   font-weight: 900 !important; /* Extra bold cho values */
 }
 
 .tv-large-screen .glass-card-group2 .metric-card-full-color,
 .tv-large-screen .glass-card-group1 .metric-card-full-color {
-  font-size: clamp(4.5rem, 7.5vw, 8.5rem) !important; /* TĂNG: 4.5rem-8.5rem cho percentage values */
-  padding: 0.15rem 0.35rem !important;
+  font-size: clamp(4.0rem, 6.0vw, 5.0rem) !important; /* Vừa phải: 4.0rem-5.0rem cho percentage values */
+  padding: 0.2rem 0.4rem !important;
   line-height: 1.15 !important;
   font-weight: 900 !important; /* Extra bold cho percentage values */
+}
+
+/* Increase secondary text (đạt lần 1, tái chế đạt, chờ sửa) for TV 43" */
+.tv-large-screen .glass-card-group2 .font-black.flex.items-center.justify-center,
+.tv-large-screen .glass-card-group1 .font-black.flex.items-center.justify-center {
+  font-size: clamp(2.0rem, 3.5vw, 2.8rem) !important; /* Vừa phải: 2.0rem-2.8rem cho secondary text */
+  line-height: 1.15 !important;
 }
 
 /* ========== HARD OVERRIDES (component inline styles) ========== */
