@@ -619,7 +619,7 @@ export default function TVDisplayHTM({
               <div className={`w-full h-full flex flex-col justify-between items-center px-1 py-1
                 `}>
                 <div className="font-black mb-0 text-transparent" style={{ fontSize: "clamp(0.9rem,1.6vw,1.8rem)" }}>INFO</div>
-                <div className="flex items-center justify-between gap-1 metric-card-violet py-1 px-2 w-full rounded" style={{ fontSize: "clamp(1.8rem,3vw,3.5rem)" }}>
+                <div className="flex items-center justify-around gap-0.5 metric-card-violet py-1 px-1 w-full rounded" style={{ fontSize: "clamp(1.8rem,3vw,3.5rem)" }}>
                   <div className={getFlashClass('nhaMay', "text-white font-black")}>{displayData.nhaMay}</div>
                   <div className={getFlashClass('line', "text-white font-black")}>{displayData.line}</div>
                   <div className={getFlashClass('to', "text-white font-black")}>{displayData.to}</div>
