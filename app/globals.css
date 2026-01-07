@@ -449,7 +449,7 @@ html:has(.tv-container) {
 /* Increase fontSize for main content on TV 43" */
 .tv-large-screen .glass-card-group2 .text-white.font-black.leading-tight,
 .tv-large-screen .glass-card-group1 .text-white.font-black.leading-tight {
-  font-size: clamp(1.5rem, 2.8vw, 2.0rem) !important; /* Giảm: 1.5rem-2.0rem cho labels */
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem) !important; /* Giảm thêm 0.3rem: 1.2rem-1.7rem cho labels */
   line-height: 1.15 !important;
   margin-bottom: 0.25rem !important;
   font-weight: 900 !important;
