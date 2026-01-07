@@ -435,7 +435,7 @@ html:has(.tv-container) {
 
 .tv-large-screen .tv-header .metric-card-group1,
 .tv-large-screen .tv-header .metric-card-violet {
-  padding: 0.5rem 0.85rem !important; /* Tăng padding cho header items */
+  padding: 1rem 0.85rem !important; /* Tăng padding cho header items */
   font-size: clamp(2.1rem, 3.5vw, 4.2rem) !important; /* Tăng font size */
   line-height: 1.1 !important;
   min-height: 0 !important;

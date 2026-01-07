@@ -616,8 +616,7 @@ export default function TVDisplayHTM({
               </div>
 
               {/* Factory/Line/Team */}
-              <div className={`w-full h-full flex flex-col justify-between items-center px-1
-                ${isLargeScreen ? 'py-2' : 'py-1'} min-w-0
+              <div className={`w-full h-full flex flex-col justify-between items-center px-1 py-1
                 `}>
                 <div className="font-black mb-0 text-transparent" style={{ fontSize: "clamp(0.9rem,1.6vw,1.8rem)" }}>INFO</div>
                 <div className="flex items-center justify-between gap-1 metric-card-violet py-1 px-2 w-full rounded" style={{ fontSize: "clamp(1.8rem,3vw,3.5rem)" }}>
@@ -731,8 +730,8 @@ export default function TVDisplayHTM({
                 </div>
                 <div className="font-black flex items-center justify-center" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)" }}>
                   <div className={getFlashClass('diffLkthTarget', `flex flex-row items-center justify-center ${displayData.diffLkthTarget > 0 ? 'text-green-400' : displayData.diffLkthTarget < 0 ? 'text-red-500' : ''}`)}>
-                    {displayData.diffLkthTarget > 0 && <UpArrowIcon />}
-                    {displayData.diffLkthTarget < 0 && <DownArrowIcon />}
+                    {displayData.diffLkthTarget > 0 && <UpArrowIcon  />}
+                    {displayData.diffLkthTarget < 0 && <DownArrowIcon  />}
                     {formatNumber(Math.abs(displayData.diffLkthTarget))}
                   </div>
                 </div>
@@ -750,8 +749,8 @@ export default function TVDisplayHTM({
                 </div>
                 <div className="font-black flex items-center justify-center" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)" }}>
                   <div className={getFlashClass('diffPhanTramHt100', `flex flex-row items-center justify-center ${displayData.diffPhanTramHt100 > 0 ? 'text-green-400' : displayData.diffPhanTramHt100 < 0 ? 'text-red-500' : ''}`)}>
-                    {displayData.diffPhanTramHt100 > 0 && <UpArrowIcon />}
-                    {displayData.diffPhanTramHt100 < 0 && <DownArrowIcon />}
+                    {displayData.diffPhanTramHt100 > 0 && <UpArrowIcon  />}
+                    {displayData.diffPhanTramHt100 < 0 && <DownArrowIcon  />}
                     {formatPercentage(Math.abs(displayData.diffPhanTramHt100), 2)}%
                   </div>
                 </div>
@@ -789,8 +788,8 @@ export default function TVDisplayHTM({
                 </div>
                 <div className="font-black flex items-center justify-center" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)" }}>
                   <div className={getFlashClass('ratioPphThKh', `flex flex-row items-center justify-center font-black ${displayData.ratioPphThKh > 0 ? 'text-green-400' : displayData.ratioPphThKh < 0 ? 'text-red-500' : ''}`)}>
-                    {displayData.ratioPphThKh > 0 && <UpArrowIcon />}
-                    {displayData.ratioPphThKh < 0 && <DownArrowIcon />}
+                    {displayData.ratioPphThKh > 0 && <UpArrowIcon  />}
+                    {displayData.ratioPphThKh < 0 && <DownArrowIcon  />}
                     {formatPercentage(Math.abs(displayData.ratioPphThKh), 2)}
                   </div>
                 </div>
@@ -808,8 +807,8 @@ export default function TVDisplayHTM({
                 </div>
                 <div className="font-black flex items-center justify-center" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)" }}>
                   <div className={getFlashClass('diffPhanTramHtPph100', `flex flex-row items-center justify-center font-black ${displayData.diffPhanTramHtPph100 > 0 ? 'text-green-400' : displayData.diffPhanTramHtPph100 < 0 ? 'text-red-500' : ''}`)}>
-                    {displayData.diffPhanTramHtPph100 > 0 && <UpArrowIcon />}
-                    {displayData.diffPhanTramHtPph100 < 0 && <DownArrowIcon />}
+                    {displayData.diffPhanTramHtPph100 > 0 && <UpArrowIcon  />}
+                    {displayData.diffPhanTramHtPph100 < 0 && <DownArrowIcon  />}
                     {formatPercentage(Math.abs(displayData.diffPhanTramHtPph100), 2)}%
                   </div>
                 </div>
@@ -864,7 +863,7 @@ export default function TVDisplayHTM({
                 <div className="font-black flex items-center justify-center" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)" }}>
                   {tuiChosua > 0 && taichedat > 0 ? (
                     <div className="flex items-center justify-center text-red-500">
-                      <DownArrowIcon />
+                      <DownArrowIcon  />
                       {formatNumber(tuiChosua)} chờ sửa
                     </div>
                   ) : (
@@ -885,8 +884,8 @@ export default function TVDisplayHTM({
                 </div>
                 <div className="font-black flex items-center justify-center" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)" }}>
                   <div className={getFlashClass('diffRftTarget', `flex flex-row items-center justify-center ${displayData.diffRftTarget > 0 ? 'text-green-400' : displayData.diffRftTarget < 0 ? 'text-red-500' : ''}`)}>
-                    {displayData.diffRftTarget > 0 && <UpArrowIcon />}
-                    {displayData.diffRftTarget < 0 && <DownArrowIcon />}
+                    {displayData.diffRftTarget > 0 && <UpArrowIcon  />}
+                    {displayData.diffRftTarget < 0 && <DownArrowIcon  />}
                     {formatPercentage(Math.abs(displayData.diffRftTarget), 2)}%
                   </div>
                 </div>
