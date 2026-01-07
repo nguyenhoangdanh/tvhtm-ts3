@@ -472,7 +472,7 @@ html:has(.tv-container) {
 /* Increase secondary text (đạt lần 1, tái chế đạt, chờ sửa) for TV 43" */
 .tv-large-screen .glass-card-group2 .font-black.flex.items-center.justify-center,
 .tv-large-screen .glass-card-group1 .font-black.flex.items-center.justify-center {
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important; /* Giảm: 1.3rem-1.8rem cho secondary text */
+  font-size: clamp(1.5rem, 2.5vw, 2rem) !important; /* Giảm: 1.3rem-1.8rem cho secondary text */
   line-height: 1.15 !important;
 }
 
