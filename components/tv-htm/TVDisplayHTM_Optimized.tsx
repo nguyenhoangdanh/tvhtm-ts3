@@ -19,6 +19,15 @@ interface TVDisplayHTMProps {
   tvMode?: boolean
 }
 
+// Exclusion list - Do not show "SAI LOGIC" warning for these codes
+const SAI_LOGIC_EXCLUSION_LIST = [
+  'KVHB07M25',
+  'KVHB07M26',
+  'KVHB07M32',
+  'KVHB07M33',
+  'KVHB07M34'
+];
+
 // 14 data points for timeline
 const dataErrors = [
   { label: "KEO", field: "loi1", isCritical: true },
@@ -379,15 +388,29 @@ export default function TVDisplayHTM({
   }, [displayData?.hourlyData]);
 
   // Check duLieu logic and return warning message
-  const getDataWarning = useMemo(() => {
+   const getDataWarning = useMemo(() => {
     if (!displayData) return null;
 
     const duLieu = getDuLieu();
     const lkth = displayData.lkth || 0;
     const tongDat = displayData.tongDat || 0;
+    const tongKiem = displayData.tongKiem || 0;
 
-    // TH1: duLieu === "ĐỦ" && lkth > tongDat => "SAI LOGIC"
-    if (duLieu === "ĐỦ" && lkth > tongDat) {
+    // Check time constraint: only show warning after 8:30 AM
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+    const isAfter830 = currentMinutes >= (8 * 60 + 30); // 8:30 AM
+
+    // Only proceed if tongDat > 0 && tongKiem > 0 && after 8:30
+    if (tongDat <= 0 || tongKiem <= 0 || !isAfter830) {
+      return null;
+    }
+
+    // Check if current maChuyenLine is in exclusion list
+    const isExcluded = maChuyenLine && SAI_LOGIC_EXCLUSION_LIST.includes(maChuyenLine);
+
+    // TH1: duLieu === "ĐỦ" && lkth > tongDat => "SAI LOGIC" (skip if in exclusion list)
+    if (duLieu === "ĐỦ" && lkth > tongDat && !isExcluded) {
       return "SAI LOGIC";
     }
 
@@ -397,7 +420,8 @@ export default function TVDisplayHTM({
     }
 
     return null;
-  }, [displayData?.lkth, displayData?.tongDat, displayData?.hourlyData]);
+  }, [displayData?.lkth, displayData?.tongDat, displayData?.hourlyData, maChuyenLine]);
+
 
   // Get optimized error list - Sort by count (high to low)
   const getOptimizedErrorList = () => {
@@ -555,15 +579,45 @@ export default function TVDisplayHTM({
       {/* Data Warning Overlay - Absolute positioned in center */}
       {getDataWarning && (
         <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
-          <div 
-            className="animate-pulse bg-yellow-400 text-red-600 font-black px-12 py-6 rounded-xl border-4 border-red-600 shadow-2xl pointer-events-auto"
-            style={{ 
-              fontSize: "clamp(1.5rem, 3vw, 4.5rem)",
-              animation: "pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-              boxShadow: "0 0 50px rgba(239, 68, 68, 0.5), 0 0 100px rgba(251, 191, 36, 0.3)"
-            }}
-          >
-            ⚠️ {getDataWarning} ⚠️
+          <div className="relative flex flex-col items-center gap-3 pointer-events-auto">
+            {/* Warning Icons - Outside */}
+            <div className="flex items-center gap-8">
+              <div 
+                className="animate-pulse text-yellow-400"
+                style={{ 
+                  fontSize: "clamp(3rem, 6vw, 8rem)",
+                  filter: "drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))",
+                  animationDuration: "1s"
+                }}
+              >
+                ⚠️
+              </div>
+              
+              {/* Warning Message Box */}
+              <div 
+                className="bg-gradient-to-br from-yellow-300 via-yellow-400 to-orange-400 text-red-700 font-black px-16 py-8 rounded-2xl border-8 border-red-600 shadow-2xl"
+                style={{ 
+                  fontSize: "clamp(2rem, 4vw, 5rem)",
+                  boxShadow: "0 0 60px rgba(239, 68, 68, 0.7), 0 0 120px rgba(251, 191, 36, 0.5), inset 0 0 40px rgba(255, 255, 255, 0.3)",
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                  animation: "pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite"
+                }}
+              >
+                {getDataWarning}
+              </div>
+              
+              <div 
+                className="animate-pulse text-yellow-400"
+                style={{ 
+                  fontSize: "clamp(3rem, 6vw, 8rem)",
+                  filter: "drop-shadow(0 0 20px rgba(251, 191, 36, 0.8))",
+                  animationDuration: "1s",
+                  animationDelay: "0.15s"
+                }}
+              >
+                ⚠️
+              </div>
+            </div>
           </div>
         </div>
       )}

@@ -435,7 +435,7 @@ html:has(.tv-container) {
 
 .tv-large-screen .tv-header .metric-card-group1,
 .tv-large-screen .tv-header .metric-card-violet {
-  padding: 1rem 0.85rem !important; /* Tăng padding cho header items */
+  padding: 0.5rem 0.85rem !important; /* Tăng padding cho header items */
   font-size: clamp(2.1rem, 3.5vw, 4.2rem) !important; /* Tăng font size */
   line-height: 1.1 !important;
   min-height: 0 !important;
@@ -1924,4 +1924,18 @@ box-shadow:
   animation: flash-yellow-bright 1s ease-in-out 2;
   transition: all 0.3s ease;
 }
+
+/* ==================== BLINK BACKGROUND ANIMATION FOR WARNING STATE ==================== */
+
+@keyframes blink-bg {
+  0%, 100% {
+    background-color: rgba(142, 178, 235, 0.2); /* Original blue tint - slightly brighter */
+    box-shadow: none;
+  }
+  50% {
+    background-color: rgba(254, 240, 138, 0.85); /* Much brighter yellow (yellow-200) for better contrast with black text */
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+}
+
 
