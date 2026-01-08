@@ -844,14 +844,14 @@ export default function TVDisplayHTM({
                   <div className={getFlashClass('ratioPphThKh', `flex flex-row items-center justify-center font-black ${displayData.ratioPphThKh > 0 ? 'text-green-400' : displayData.ratioPphThKh < 0 ? 'text-red-500' : ''}`)}>
                     {displayData.ratioPphThKh > 0 && <UpArrowIcon  />}
                     {displayData.ratioPphThKh < 0 && <DownArrowIcon  />}
-                    {/* {formatPercentage(Math.abs(displayData.ratioPphThKh), 2)} */}
-                    {displayData.ratioPphThKh > 0
+                    {formatPercentage(Math.abs(displayData.ratioPphThKh), 2)}
+                    {/* {displayData.ratioPphThKh > 0
                       ? formatPercentage(Math.abs(displayData.ratioPphThKh), 2)
                       : (
                         <div className="font-black flex items-center justify-center gap-1" style={{ fontSize: hasErrors ? "clamp(1.3rem,2.5vw,2.5rem)" : "clamp(1.2rem,2.0vw,1.8rem)", visibility: 'hidden' }}>
                           <div>PLACEHOLDER</div>
                         </div>
-                      )}
+                      )} */}
                   </div>
                 </div>
               </div>
