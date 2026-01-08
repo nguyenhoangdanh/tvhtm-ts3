@@ -36,7 +36,7 @@ const dataErrors = [
   { label: "DA", field: "loi4", isCritical: true },
   { label: "VÂN KĐB", field: "loi5", isCritical: true },
   { label: "HW", field: "loi6", isCritical: true },
-  { label: "DK G.SÓNG", field: "loi7", isCritical: true },
+  { label: "DK CONG", field: "loi7", isCritical: true },
   { label: "SƠN", field: "loi8", isCritical: true },
   { label: "CT NHĂN", field: "loi9", isCritical: true },
   { label: "LOGO", field: "loi10", isCritical: true },
@@ -951,7 +951,7 @@ export default function TVDisplayHTM({
         {/* Combined Error Analysis & Hourly Timeline - NO flex-1, use CSS max-height */}
         <div className={`glass-card-group3 border border-red-400/30 flex flex-col flex-none ${hasErrors ? 'p-1 gap-2' : 'p-4 gap-4'}`}>
           {/* Error Analysis Section - NO flex-1, use CSS max-height cap */}
-          {hasErrors && (
+          {/* {hasErrors && ( */}
             <div className="flex-none">
               <div className="flex h-full error-qc-container items-stretch gap-2 justify-start">
                 {getOptimizedErrorList().map((errorItem, displayIndex) => (
@@ -980,7 +980,7 @@ export default function TVDisplayHTM({
                 ))}
               </div>
             </div>
-          )}
+          {/* )} */}
 
           {/* Hourly Timeline Section - NO flex-1, use CSS max-height cap */}
           <div className="flex-none">
